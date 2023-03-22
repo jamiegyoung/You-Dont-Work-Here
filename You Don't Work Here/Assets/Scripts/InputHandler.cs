@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public enum InputHandlerActions
@@ -24,6 +25,7 @@ public class InputHandler
 
     public T GetActionValue<T>(InputHandlerActions inputType) where T : struct
     {
+        Debug.Log(inputType.ToString());
         return GetAction(inputType).ReadValue<T>();
     }
 

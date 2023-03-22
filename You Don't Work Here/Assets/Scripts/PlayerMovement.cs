@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float maxPlayerSpeed;
     public float timeToMaxVelocity;
-    public float playerJumpHeight;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -50,18 +50,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayWalkAudio()
     {
-        if (timeSinceLastFootstep - Time.time > -0.3f) { return; }
+        if (timeSinceLastFootstep - Time.time > -1 * (maxPlayerSpeed / 3)) { return; }
         timeSinceLastFootstep = Time.time;
         if (leftFoot)
         {
             leftFoot = false;
-            leftFootAudio.pitch = Random.Range(0.9f, 1.1f);
+            leftFootAudio.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
             leftFootAudio.Play();
         }
         else
         {
             leftFoot = true;
-            leftFootAudio.pitch = Random.Range(0.9f, 1.1f);
+            leftFootAudio.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
             rightFootAudio.Play();
         }
     }
@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
             state = AnimationState.Idle;
         }
 
+        Debug.Log((int)state);
         anim.SetInteger("state", (int)state);
     }
 }
