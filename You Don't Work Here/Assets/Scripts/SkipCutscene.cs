@@ -13,7 +13,7 @@ public class SkipCutscene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            sceneLoader.LoadLevel(SceneLoader.Levels.Game);
+            sceneLoader.LoadLevel(SceneLoader.Levels.House);
         }
     }
 }
