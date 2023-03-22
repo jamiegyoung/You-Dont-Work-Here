@@ -85,7 +85,6 @@ public class PlayerMovement : MonoBehaviour
             state = AnimationState.Idle;
         }
 
-        Debug.Log((int)state);
         anim.SetInteger("state", (int)state);
     }
 }
