@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ExitDoor : MonoBehaviour, Interactable
 {
+
+    public SceneLoader sceneLoader;
+
     public void Interact(GameObject interactor)
     {
-        throw new System.NotImplementedException();
+        sceneLoader.LoadLevel(SceneLoader.Levels.Walk);
     }
 }

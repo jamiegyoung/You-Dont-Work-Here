@@ -11,7 +11,9 @@ public class SceneLoader : MonoBehaviour
     {
         Menu,
         Intro,
-        Game
+        House,
+        Walk,
+        Reception
     }
 
     public void LoadLevel(Levels levels)
