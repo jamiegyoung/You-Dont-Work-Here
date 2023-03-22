@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public enum InputHandlerActions
 {
     Move,
-    Attack,
+    Interact,
     Pause
 }
 
