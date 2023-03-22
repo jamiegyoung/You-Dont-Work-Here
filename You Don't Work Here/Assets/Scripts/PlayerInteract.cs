@@ -45,7 +45,6 @@ public class PlayerInteract : MonoBehaviour
 
         if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact))
         {
-            Debug.Log("Interacting");
             interactable.Interact(gameObject);
         }
     }
