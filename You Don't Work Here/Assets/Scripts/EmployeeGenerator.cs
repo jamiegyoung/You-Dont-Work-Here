@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using UnityEngine;
 
 [System.Serializable]
@@ -26,10 +27,24 @@ public struct SpeechType
     public string[] takingTimeText;
     public string[] acceptionText;
     public string[] rejectionText;
+
+    public static bool operator ==(SpeechType a, SpeechType b)
+    {
+        return a.introductionText.SequenceEqual(b.introductionText) &&
+               a.takingTimeText.SequenceEqual(b.takingTimeText) &&
+               a.acceptionText.SequenceEqual(b.acceptionText) &&
+               a.rejectionText.SequenceEqual(b.rejectionText);
+    }
+
+    public static bool operator !=(SpeechType a, SpeechType b)
+    {
+        return !(a == b);
+    }
+
 }
 
 [System.Serializable]
-public struct Employee
+public class Employee
 {
     public int id;
     public string firstName;
@@ -40,10 +55,30 @@ public struct Employee
     public Sprite eyesSprite;
     public Sprite mouthSprite;
     public bool wearsGlasses;
+
+    public static int Equals(Employee a, Employee b)
+    {
+        bool tmp = a.speechType == b.speechType;
+        int similarities = new[] {
+        a.id == b.id,
+        a.firstName == b.firstName,
+        a.lastName == b.lastName,
+        a.speechType == b.speechType,
+        a.face.faceSprite == b.face.faceSprite,
+        a.hairSprite == b.hairSprite,
+        a.eyesSprite == b.eyesSprite,
+        a.mouthSprite == b.mouthSprite,
+        a.wearsGlasses == b.wearsGlasses
+    }.Count(c => c);
+
+        return similarities;
+    }
+
 }
 
 public class EmployeeGenerator : MonoBehaviour
 {
+    private const int SIMILARITY_THRESHOLD = 2;
     public FaceType[] faces;
     public Sprite[] eyeSprites;
     public Sprite[] mouthSprites;
@@ -56,32 +91,47 @@ public class EmployeeGenerator : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         int employeesToGenerate = initialEmployees - employees.Count;
-        for (int i = 0; i < employeesToGenerate; i++)
+        while (employeesToGenerate > 0)
         {
             // TODO: add similarity check later
-            employees.Add(generateRandomEmployee());
+            Employee newEmployee = generateRandomEmployee();
+            bool remakeFlag = false;
+            foreach (Employee e in employees)
+            {
+                int similarities = Employee.Equals(e, newEmployee);
+                Debug.Log("Similarities on generated employee: " + similarities);
+                if (similarities > SIMILARITY_THRESHOLD)
+                {
+                    remakeFlag = true;
+                }
+            }
+            if (!remakeFlag)
+            {
+                employees.Add(newEmployee);
+                employeesToGenerate--;
+            }
         }
     }
 
     private Employee generateRandomEmployee()
     {
         int employeeId = employees.Count;
-        Employee newEmployee = new Employee();
-        newEmployee.id = employeeId;
+        Employee employee = new Employee();
+        employee.id = employeeId;
         int faceIndex = Random.Range(0, faces.Length);
-        newEmployee.face = faces[faceIndex];
-        int hairIndex = Random.Range(0, newEmployee.face.hairSprites.Length);
-        newEmployee.hairSprite = newEmployee.face.hairSprites[hairIndex];
+        employee.face = faces[faceIndex];
+        int hairIndex = Random.Range(0, employee.face.hairSprites.Length);
+        employee.hairSprite = employee.face.hairSprites[hairIndex];
         int eyesIndex = Random.Range(0, eyeSprites.Length);
-        newEmployee.eyesSprite = eyeSprites[eyesIndex];
+        employee.eyesSprite = eyeSprites[eyesIndex];
         int mouthIndex = Random.Range(0, mouthSprites.Length);
-        newEmployee.mouthSprite = mouthSprites[mouthIndex];
-        newEmployee.wearsGlasses = Random.Range(0, 3) == 0;
+        employee.mouthSprite = mouthSprites[mouthIndex];
+        employee.wearsGlasses = Random.Range(0, 3) == 0;
         int employeeTypeIndex = Random.Range(0, employeeTypes.Length);
         EmployeeType et = employeeTypes[employeeTypeIndex];
-        newEmployee.firstName = et.firstNames[Random.Range(0, et.firstNames.Length)];
-        newEmployee.lastName = et.lastNames[Random.Range(0, et.lastNames.Length)];
-        newEmployee.speechType = et.speechType;
-        return newEmployee;
+        employee.firstName = et.firstNames[Random.Range(0, et.firstNames.Length)];
+        employee.lastName = et.lastNames[Random.Range(0, et.lastNames.Length)];
+        employee.speechType = et.speechType;
+        return employee;
     }
 }
