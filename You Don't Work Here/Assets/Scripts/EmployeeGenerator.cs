@@ -12,8 +12,8 @@ public class EmployeeGenerator : MonoBehaviour
     public Sprite[] mouthSprites;
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
-    public int initialEmployees;
-    public int employeeAdditionAmount;
+    public int initialEmployees = 4;
+    public int employeeAdditionAmount = 1;
 
     void Start()
     {
