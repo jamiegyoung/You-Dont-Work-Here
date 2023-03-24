@@ -27,10 +27,11 @@ public class PlayerMoney : ScriptableObject
     }
 
     /// <summary>
-    /// Method <c>Withdraw</c> withdraws a given value from the players current bank balance and returns the updated balance.
+    /// Method <c>Withdraw</c> withdraws a given value from the players current bank balance.
     /// </summary>
     /// <param name="value">Value to decrement bank balance by.</param>
-    public float Withdraw(float value)
+    ///<returns> A boolean representing whether or not the withdrawal was succesfull </returns>
+    public bool Withdraw(float value)
     {
         balance -= value;
         return balance;
