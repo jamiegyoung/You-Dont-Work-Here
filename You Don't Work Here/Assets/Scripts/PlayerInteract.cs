@@ -40,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
             interactionInformer.Hide();
             return;
         }
-        Vector2 interactionInformerPos = new(hitPos.x, hitPos.y + hit.collider.bounds.size.y - 1f);
+        Vector2 interactionInformerPos = new(hitPos.x, hitPos.y + hit.collider.bounds.size.y);
         interactionInformer.Show(interactionInformerPos, inputHandler.GetBindingDisplayString(InputHandlerActions.Interact));
 
         if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact))
