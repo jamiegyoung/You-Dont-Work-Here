@@ -25,7 +25,7 @@ public class PlayerInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, GetDirectionVector(), 1f, interactableMask + blockingMask);
+        RaycastHit2D hit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, GetDirectionVector(), .5f, interactableMask + blockingMask);
         if (hit.collider == null)
         {
             interactionInformer.Hide();
