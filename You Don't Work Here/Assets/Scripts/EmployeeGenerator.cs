@@ -15,6 +15,7 @@ public struct EmployeeType
 public struct FaceType
 {
     public Sprite faceSprite;
+    public Sprite glassesSprite;
     public Sprite[] hairSprites;
 }
 
@@ -45,7 +46,6 @@ public class EmployeeGenerator : MonoBehaviour
     public FaceType[] faces;
     public Sprite[] eyeSprites;
     public Sprite[] mouthSprites;
-    public Sprite[] glassesSprites;
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
     // Start is called before the first frame update
