@@ -456,22 +456,7 @@ MonoBehaviour:
       - That's proper bad!
       - This is well out of order!
       - After all I do for you!
-  employees:
-  - id: 0
-    firstName: 
-    lastName: 
-    speechType:
-      introductionText: []
-      takingTimeText: []
-      acceptionText: []
-      rejectionText: []
-    face:
-      faceSprite: {fileID: 0}
-      glassesSprite: {fileID: 0}
-      hairSprites: []
-    hairSprite: {fileID: 0}
-    eyesSprite: {fileID: 0}
-    mouthSprite: {fileID: 0}
+  employees: []
   initialEmployees: 4
   employeeAdditionAmount: 1
 --- !u!4 &782230751
