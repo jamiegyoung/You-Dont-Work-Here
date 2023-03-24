@@ -39,6 +39,7 @@ public struct Employee
     public Sprite hairSprite;
     public Sprite eyesSprite;
     public Sprite mouthSprite;
+    public bool wearsGlasses;
 }
 
 public class EmployeeGenerator : MonoBehaviour
@@ -48,7 +49,6 @@ public class EmployeeGenerator : MonoBehaviour
     public Sprite[] mouthSprites;
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
-    // Start is called before the first frame update
     public int initialEmployees;
     public int employeeAdditionAmount;
 
@@ -69,6 +69,7 @@ public class EmployeeGenerator : MonoBehaviour
             newEmployee.eyesSprite = eyeSprites[eyesIndex];
             int mouthIndex = Random.Range(0, mouthSprites.Length);
             newEmployee.mouthSprite = mouthSprites[mouthIndex];
+            newEmployee.wearsGlasses = Random.Range(0, 3) == 0;
             employees.Add(newEmployee);
         }
     }
