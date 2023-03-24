@@ -6,38 +6,45 @@ using UnityEngine;
 [System.Serializable]
 public struct EmployeeType
 {
-    public string[] FirstNames;
-    public string[] LastNames;
+    public string[] firstNames;
+    public string[] lastNames;
     public VoiceType voiceType;
+}
+
+[System.Serializable]
+public struct FaceType
+{
+    public Sprite faceSprite;
+    public Sprite[] hairSprites;
 }
 
 [System.Serializable]
 public struct VoiceType
 {
-    public string[] IntroductionText;
-    public string[] TakingTimeText;
-    public string[] AcceptionText;
-    public string[] RejectionText;
+    public string[] introductionText;
+    public string[] takingTimeText;
+    public string[] acceptionText;
+    public string[] rejectionText;
 }
 
 [System.Serializable]
 public struct Employee
 {
-    public int Id;
-    public string FirstName;
-    public string LastName;
-    public VoiceType VoiceType;
-    public Sprite face;
-    public Sprite hair;
-    public Sprite beard;
-    public Sprite glasses;
+    public int id;
+    public string firstName;
+    public string lastName;
+    public VoiceType voiceType;
+    public FaceType face;
+    public Sprite hairSprite;
+    public Sprite eyesSprite;
+    public Sprite mouthSprite;
 }
 
 public class EmployeeGenerator : MonoBehaviour
 {
-    public Sprite[] faceSprites;
-    public Sprite[] hairSprites;
-    public Sprite[] beardSprites;
+    public FaceType[] faces;
+    public Sprite[] eyeSprites;
+    public Sprite[] mouthSprites;
     public Sprite[] glassesSprites;
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
@@ -52,12 +59,13 @@ public class EmployeeGenerator : MonoBehaviour
         {
             int employeeId = employees.Count - 1;
             Employee newEmployee = new Employee();
-            newEmployee.Id = employeeId;
-            newEmployee.face = faceSprites[Random.Range(0, faceSprites.Length)];
-            newEmployee.hair = hairSprites[Random.Range(0, hairSprites.Length)];
-            newEmployee.beard = beardSprites[Random.Range(0, beardSprites.Length)];
-            newEmployee.glasses = glassesSprites[Random.Range(0, glassesSprites.Length)];
-            newEmployee.VoiceType = employeeTypes[Random.Range(0, employeeTypes.Length)].voiceType;
+            newEmployee.id = employeeId;
+            int faceIndex = Random.Range(0, faces.Length);
+            newEmployee.face = faces[faceIndex];
+            int hairIndex = Random.Range(0, newEmployee.face.hairSprites.Length);
+            newEmployee.hairSprite = newEmployee.face.hairSprites[hairIndex];
+            //newEmployee. = glassesSprites[Random.Range(0, glassesSprites.Length)];
+            newEmployee.voiceType = employeeTypes[Random.Range(0, employeeTypes.Length)].voiceType;
 
             employees.Add(newEmployee);
         }
