@@ -55,17 +55,22 @@ public class EmployeeGenerator : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        for (int i = 0; i < initialEmployees - employees.Count; i++)
+        int employeesToGenerate = initialEmployees - employees.Count;
+        for (int i = 0; i < employeesToGenerate; i++)
         {
-            int employeeId = employees.Count - 1;
+            int employeeId = employees.Count;
             Employee newEmployee = new Employee();
             newEmployee.id = employeeId;
             int faceIndex = Random.Range(0, faces.Length);
             newEmployee.face = faces[faceIndex];
             int hairIndex = Random.Range(0, newEmployee.face.hairSprites.Length);
             newEmployee.hairSprite = newEmployee.face.hairSprites[hairIndex];
+            int eyesIndex = Random.Range(0, eyeSprites.Length);
+            newEmployee.eyesSprite = eyeSprites[eyesIndex];
+            int mouthIndex = Random.Range(0, mouthSprites.Length);
+            newEmployee.mouthSprite = mouthSprites[mouthIndex];
             //newEmployee. = glassesSprites[Random.Range(0, glassesSprites.Length)];
-            newEmployee.voiceType = employeeTypes[Random.Range(0, employeeTypes.Length)].voiceType;
+            //newEmployee.voiceType = employeeTypes[Random.Range(0, employeeTypes.Length)].voiceType;
 
             employees.Add(newEmployee);
         }
