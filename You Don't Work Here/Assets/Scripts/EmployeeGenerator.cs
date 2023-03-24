@@ -58,19 +58,30 @@ public class EmployeeGenerator : MonoBehaviour
         int employeesToGenerate = initialEmployees - employees.Count;
         for (int i = 0; i < employeesToGenerate; i++)
         {
-            int employeeId = employees.Count;
-            Employee newEmployee = new Employee();
-            newEmployee.id = employeeId;
-            int faceIndex = Random.Range(0, faces.Length);
-            newEmployee.face = faces[faceIndex];
-            int hairIndex = Random.Range(0, newEmployee.face.hairSprites.Length);
-            newEmployee.hairSprite = newEmployee.face.hairSprites[hairIndex];
-            int eyesIndex = Random.Range(0, eyeSprites.Length);
-            newEmployee.eyesSprite = eyeSprites[eyesIndex];
-            int mouthIndex = Random.Range(0, mouthSprites.Length);
-            newEmployee.mouthSprite = mouthSprites[mouthIndex];
-            newEmployee.wearsGlasses = Random.Range(0, 3) == 0;
-            employees.Add(newEmployee);
+            // TODO: add similarity check later
+            employees.Add(generateRandomEmployee());
         }
+    }
+
+    private Employee generateRandomEmployee()
+    {
+        int employeeId = employees.Count;
+        Employee newEmployee = new Employee();
+        newEmployee.id = employeeId;
+        int faceIndex = Random.Range(0, faces.Length);
+        newEmployee.face = faces[faceIndex];
+        int hairIndex = Random.Range(0, newEmployee.face.hairSprites.Length);
+        newEmployee.hairSprite = newEmployee.face.hairSprites[hairIndex];
+        int eyesIndex = Random.Range(0, eyeSprites.Length);
+        newEmployee.eyesSprite = eyeSprites[eyesIndex];
+        int mouthIndex = Random.Range(0, mouthSprites.Length);
+        newEmployee.mouthSprite = mouthSprites[mouthIndex];
+        newEmployee.wearsGlasses = Random.Range(0, 3) == 0;
+        int employeeTypeIndex = Random.Range(0, employeeTypes.Length);
+        EmployeeType et = employeeTypes[employeeTypeIndex];
+        newEmployee.firstName = et.firstNames[Random.Range(0, et.firstNames.Length)];
+        newEmployee.lastName = et.lastNames[Random.Range(0, et.lastNames.Length)];
+        newEmployee.speechType = et.speechType;
+        return newEmployee;
     }
 }
