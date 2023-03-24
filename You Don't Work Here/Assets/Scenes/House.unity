@@ -270,8 +270,208 @@ MonoBehaviour:
   - {fileID: -1210660022, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
   - {fileID: 272347401, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
   - {fileID: 2085097150, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
-  employeeTypes: []
-  employees: []
+  employeeTypes:
+  - firstNames:
+    - Anastasia
+    - Ivan
+    - Ekaterina
+    - Alexander
+    - Maria
+    - Dmitry
+    - Olga
+    - Natalia
+    - Mikhail
+    lastNames:
+    - Ivanov
+    - Smirnov
+    - Petrov
+    - Sokolov
+    - Popov
+    - Kuznetsov
+    - Morozov
+    - Novikov
+    - Pavlov
+    - Fedorov
+    - Sidorov
+    speechType:
+      introductionText:
+      - Hello, I have come to work!
+      - Hello, how you do?
+      - Good morning, nice to see you!
+      - Good morning, have nice day?
+      - Good evening, you are how?
+      takingTimeText:
+      - Please, hurry up!
+      - You very slow work!
+      - How much time you need!?
+      - You take very much time!
+      acceptionText:
+      - You is welcome!
+      - Thank you very much, very appreciate!
+      - Have nice weekend!
+      - You are very kind!
+      rejectionText:
+      - I do not understand!
+      - You are mistaken!
+      - You are not right!
+      - You are talking nonsense!
+      - You made a mistake!
+  - firstNames:
+    - Noah
+    - Leo
+    - Alexander
+    - Oliver
+    - George
+    - Adam
+    - Arthur
+    - David
+    - Daniel
+    - Henry
+    - Jack
+    - Thomas
+    - Nathan
+    - Daniel
+    - Amelia
+    - Olivia
+    - Maya
+    - Sofia
+    - Isabella
+    - Ava
+    - Lily
+    - Freya
+    - Emily
+    lastNames:
+    - Smith
+    - Jones
+    - Williams
+    - Brown
+    - Taylor
+    - Johnson
+    - Wilson
+    - Thomas
+    - Robinson
+    - Clark
+    - Davies
+    - White
+    - Wood
+    speechType:
+      introductionText:
+      - Good day, pleasure to see you
+      - Hello, how are you?
+      - You alright?
+      - Oi oi!
+      - What's new?
+      - How's it going?
+      takingTimeText:
+      - "You're taking donkey\u2019s years!"
+      - Get a move on!
+      - Chop chop!
+      - Hurry up!
+      - Come on then!
+      - What's taking you so long?
+      - What's are we waiting for?
+      acceptionText:
+      - Cheers mate!
+      - Nice one!
+      - You're a star!
+      - Much appreciated!
+      - Ta!
+      - You're a legend!
+      - I owe you one!
+      rejectionText:
+      - Get stuffed
+      - Oi oi! you can't do that!
+      - That's bang out of order!
+      - You're having a laugh!
+      - You're joking!
+      - That's not fair!
+  - firstNames:
+    - Noah
+    - Leo
+    - Alexander
+    - Oliver
+    - George
+    - Adam
+    - Arthur
+    - David
+    - Daniel
+    - Henry
+    - Jack
+    - Thomas
+    - Nathan
+    - Daniel
+    - Amelia
+    - Olivia
+    - Maya
+    - Sofia
+    - Isabella
+    - Ava
+    - Lily
+    - Freya
+    - Emily
+    lastNames:
+    - Smith
+    - Jones
+    - Williams
+    - Brown
+    - Taylor
+    - Johnson
+    - Wilson
+    - Thomas
+    - Robinson
+    - Clark
+    - Davies
+    - White
+    - Wood
+    speechType:
+      introductionText:
+      - Good day, pleasure to see you
+      - Hello, how are you?
+      - You alright?
+      - Oi oi!
+      - What's new?
+      - How's it going?
+      - How's it going?
+      takingTimeText:
+      - I don't mean to rush you!
+      - We have a deadline coming up!
+      - Can you try to speed things up a bit?
+      - I appreciate your attention to detail, but we're running out of time!
+      - We have a bit of a time constraint here!
+      - What's taking you so long?
+      - What's are we waiting for?
+      acceptionText:
+      - Cheers!
+      - Much obliged, mate!
+      - I appreciate it
+      - You're a star
+      - You're a hero!
+      - Nice one!
+      - Ta!
+      rejectionText:
+      - Ey up! What's this all about then!
+      - You can't do this to me!
+      - "You\u2019re having a laugh, aren\u2019t you?"
+      - Ey up! This is a load of rubbish!
+      - That's proper bad!
+      - This is well out of order!
+      - After all I do for you!
+  employees:
+  - id: 0
+    firstName: 
+    lastName: 
+    speechType:
+      introductionText: []
+      takingTimeText: []
+      acceptionText: []
+      rejectionText: []
+    face:
+      faceSprite: {fileID: 0}
+      glassesSprite: {fileID: 0}
+      hairSprites: []
+    hairSprite: {fileID: 0}
+    eyesSprite: {fileID: 0}
+    mouthSprite: {fileID: 0}
   initialEmployees: 4
   employeeAdditionAmount: 1
 --- !u!4 &782230751
