@@ -8,7 +8,7 @@ public struct EmployeeType
 {
     public string[] firstNames;
     public string[] lastNames;
-    public VoiceType voiceType;
+    public SpeechType speechType;
 }
 
 [System.Serializable]
@@ -20,7 +20,7 @@ public struct FaceType
 }
 
 [System.Serializable]
-public struct VoiceType
+public struct SpeechType
 {
     public string[] introductionText;
     public string[] takingTimeText;
@@ -34,7 +34,7 @@ public struct Employee
     public int id;
     public string firstName;
     public string lastName;
-    public VoiceType voiceType;
+    public SpeechType speechType;
     public FaceType face;
     public Sprite hairSprite;
     public Sprite eyesSprite;
@@ -69,9 +69,6 @@ public class EmployeeGenerator : MonoBehaviour
             newEmployee.eyesSprite = eyeSprites[eyesIndex];
             int mouthIndex = Random.Range(0, mouthSprites.Length);
             newEmployee.mouthSprite = mouthSprites[mouthIndex];
-            //newEmployee. = glassesSprites[Random.Range(0, glassesSprites.Length)];
-            //newEmployee.voiceType = employeeTypes[Random.Range(0, employeeTypes.Length)].voiceType;
-
             employees.Add(newEmployee);
         }
     }
