@@ -22,8 +22,14 @@ public class EmployeeGenerator : MonoBehaviour
         AddEmployees(employeesToGenerate);
     }
 
-    public void AddEmployees(int employeesToGenerate)
+    /// <summary>
+    /// Adds new employees to the current employees
+    /// </summary>
+    /// <param name="employeesToGenerate">The number of employees to generate</param>
+    /// <returns>A list of the added employees</returns>
+    public List<Employee> AddEmployees(int employeesToGenerate)
     {
+        List<Employee> newEmployees = new();
         while (employeesToGenerate > 0)
         {
             // TODO: add similarity check later
@@ -32,7 +38,7 @@ public class EmployeeGenerator : MonoBehaviour
             foreach (Employee e in employees)
             {
                 int similarities = e.Equals(newEmployee);
-                Debug.Log("Similarities on generated employee: " + similarities);
+                //Debug.Log("Similarities on generated employee: " + similarities);
                 if (similarities > SIMILARITY_THRESHOLD)
                 {
                     remakeFlag = true;
@@ -41,11 +47,17 @@ public class EmployeeGenerator : MonoBehaviour
             if (!remakeFlag)
             {
                 employees.Add(newEmployee);
+                newEmployees.Add(newEmployee);
                 employeesToGenerate--;
             }
         }
+        return newEmployees;
     }
 
+    /// <summary>
+    /// Generates a random employee
+    /// </summary>
+    /// <returns>The randomly generated employee</returns>
     private Employee GenerateRandomEmployee()
     {
         int employeeId = employees.Count;
