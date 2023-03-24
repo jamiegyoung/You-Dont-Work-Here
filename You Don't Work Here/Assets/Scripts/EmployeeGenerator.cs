@@ -38,7 +38,7 @@ public class EmployeeGenerator : MonoBehaviour
             foreach (Employee e in employees)
             {
                 int similarities = e.Equals(newEmployee);
-                Debug.Log("Similarities on generated employee: " + similarities);
+                //Debug.Log("Similarities on generated employee: " + similarities);
                 if (similarities > SIMILARITY_THRESHOLD)
                 {
                     remakeFlag = true;
