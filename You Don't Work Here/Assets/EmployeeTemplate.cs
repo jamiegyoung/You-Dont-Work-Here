@@ -8,4 +8,6 @@ public class EmployeeTemplate : MonoBehaviour
     public Image face;
     public Image mouth;
     public Image eyes;
+    public Image hair;
+    public Image glasses;
 }

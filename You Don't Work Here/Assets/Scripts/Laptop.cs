@@ -26,6 +26,15 @@ public class Laptop : MonoBehaviour, Interactable
             newTemplate.mouth.sprite = newEmployee.mouthSprite;
             newTemplate.face.sprite = newEmployee.face.faceSprite;
             newTemplate.face.color = Color.Lerp(Color.white, new Color32(0x63, 0x4F, 0x3F, 0xFF), (float)Random.Range(0, 10) / 10);
+            newTemplate.hair.sprite = newEmployee.hairSprite;
+            if (newEmployee.wearsGlasses)
+            {
+                newTemplate.glasses.sprite = newEmployee.face.glassesSprite;
+            } else
+            {
+                // Make the glasses transparent
+                newTemplate.glasses.color = new Color32(0, 0, 0, 0);
+            }
         }
         laptopUI.SetActive(true);
     }
