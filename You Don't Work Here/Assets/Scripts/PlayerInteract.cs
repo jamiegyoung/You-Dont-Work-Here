@@ -43,9 +43,11 @@ public class PlayerInteract : MonoBehaviour
         Vector2 interactionInformerPos = new(hitPos.x, hitPos.y + hit.collider.bounds.size.y);
         interactionInformer.Show(interactionInformerPos, inputHandler.GetBindingDisplayString(InputHandlerActions.Interact));
 
-        if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact))
+        if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact) && interactable.isInteractable)
         {
-            interactable.Interact(gameObject);
+            {
+                interactable.Interact(gameObject);
+            }
         }
     }
 

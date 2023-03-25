@@ -7,6 +7,8 @@ public class ExitDoor : MonoBehaviour, Interactable
 
     public SceneLoader sceneLoader;
 
+    public bool isInteractable => true;
+
     public void Interact(GameObject interactor)
     {
         sceneLoader.LoadLevel(SceneLoader.Levels.Walk);

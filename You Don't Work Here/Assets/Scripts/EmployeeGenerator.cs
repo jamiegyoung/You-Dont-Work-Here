@@ -23,6 +23,7 @@ public class EmployeeGenerator : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         int employeesToGenerate = initialEmployees - employees.Count;
         AddEmployees(employeesToGenerate);
+        AddEmployees(employeesToGenerate);
     }
 
     /// <summary>
@@ -93,12 +94,16 @@ public class EmployeeGenerator : MonoBehaviour
         int mouthIndex = Random.Range(0, mouthSprites.Length);
         int employeeTypeIndex = Random.Range(0, employeeTypes.Length);
         EmployeeType et = employeeTypes[employeeTypeIndex];
-
         Employee employee = new()
         {
             id = employeeId,
             face = faces[faceIndex],
+            faceColor = Color.Lerp(
+                Color.white,
+                new Color32(0x63, 0x4F, 0x3F, 0xFF),
+                (float)Random.Range(0, 10) / 10),
             hairSprite = faces[faceIndex].hairSprites[hairIndex],
+            hairColor = GenerateHairColor(),
             eyesSprite = eyeSprites[eyesIndex],
             mouthSprite = mouthSprites[mouthIndex],
             wearsGlasses = Random.Range(0, 3) == 0,
@@ -107,5 +112,17 @@ public class EmployeeGenerator : MonoBehaviour
             speechType = et.speechType
         };
         return employee;
+    }
+
+    private static Color GenerateHairColor()
+    {
+        if (Random.Range(0, 10) == 0)
+        {
+            return new Color32(0xCD, 0xCD, 0xCD, 0xFF);
+        }
+        return Color.Lerp(
+            new Color32(0xFF, 0xD4, 0x47, 0xFF),
+            new Color32(0x1B, 0x19, 0x17, 0xFF),
+            (float)Random.Range(0, 10) / 10);
     }
 }

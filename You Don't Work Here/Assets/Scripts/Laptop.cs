@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Laptop : MonoBehaviour, Interactable
 {
@@ -8,54 +10,97 @@ public class Laptop : MonoBehaviour, Interactable
 
     public GameObject employeeTemplateGameObject;
     public GameObject newEmployeesPanel;
+    public GameObject newEmployeesText;
     public GameObject firedEmployeesPanel;
+    public GameObject firedEmployeesText;
     public GameObject continuingEmployeesPanel;
+    public GameObject continuingEmployeesText;
     public EmployeeGenerator employeeGenerator;
+    public PlayerInput playerInput;
+    private InputHandler inputHandler;
+
+    //public bool isInteractable => !laptopUI.activeInHierarchy;
+    public bool isInteractable => true;
 
     public void Start()
     {
+        inputHandler = new InputHandler(playerInput);
         laptopUI.SetActive(false);
     }
-    public void Interact(GameObject interactor)
+
+    public void Update()
     {
-        foreach (Employee newEmployee in employeeGenerator.newEmployees)
+        if (inputHandler.WasPressedThisFrame(InputHandlerActions.Pause))
         {
-            GameObject employeeTemplateeGameObjectClone = Instantiate(employeeTemplateGameObject, newEmployeesPanel.transform);
-            EmployeeTemplate newTemplate = employeeTemplateeGameObjectClone.GetComponent<EmployeeTemplate>();
-            newTemplate.eyes.sprite = newEmployee.eyesSprite;
-            newTemplate.mouth.sprite = newEmployee.mouthSprite;
-            newTemplate.face.sprite = newEmployee.face.faceSprite;
-            newTemplate.face.color = Color.Lerp(
-                Color.white,
-                new Color32(0x63, 0x4F, 0x3F, 0xFF),
-                (float)Random.Range(0, 10) / 10);
-            newTemplate.hair.sprite = newEmployee.hairSprite;
+            Close();
+        }
+    }
+
+    private void GeneratePhotos(List<Employee> employees, GameObject employeesPanel)
+    {
+        foreach (Transform child in employeesPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (Employee employee in employees)
+        {
+            GameObject employeeTemplateGameObjectClone = Instantiate(employeeTemplateGameObject, employeesPanel.transform);
+            EmployeeTemplate template = employeeTemplateGameObjectClone.GetComponent<EmployeeTemplate>();
+            template.eyes.sprite = employee.eyesSprite;
+            template.mouth.sprite = employee.mouthSprite;
+            template.face.sprite = employee.face.faceSprite;
+            template.face.color = employee.faceColor;
 
             // 1 in 10 chance of being gray
-            if (Random.Range(0, 10) == 0)
+            template.hair.sprite = employee.hairSprite;
+            template.hair.color = employee.hairColor;
+            if (employee.wearsGlasses)
             {
-                newTemplate.hair.color = new Color32(0xCD, 0xCD, 0xCD, 0xFF);
-            }
-            else
-            {
-                newTemplate.hair.color = Color.Lerp(
-                    new Color32(0xFF, 0xD4, 0x47, 0xFF),
-                    new Color32(0x1B, 0x19, 0x17, 0xFF),
-                    (float)Random.Range(0, 10) / 10);
-            }
-            if (newEmployee.wearsGlasses)
-            {
-                newTemplate.glasses.sprite = newEmployee.face.glassesSprite;
+                template.glasses.sprite = employee.face.glassesSprite;
             }
             else
             {
                 // Make the glasses transparent
-                newTemplate.glasses.color = new Color32(0, 0, 0, 0);
+                template.glasses.color = new Color32(0, 0, 0, 0);
             }
 
-            newTemplate.setFirstName(newEmployee.firstName);
-            newTemplate.setLastName(newEmployee.lastName);
+            template.setFirstName(employee.firstName);
+            template.setLastName(employee.lastName);
         }
+    }
+
+    public void Close()
+    {
+        laptopUI.SetActive(false);
+    }
+
+    public void Interact(GameObject interactor)
+    {
+        ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
+        GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
+
+        ToggleEmployeesGrid(employeeGenerator.firedEmployees, firedEmployeesPanel, firedEmployeesText);
+        GeneratePhotos(employeeGenerator.firedEmployees, firedEmployeesPanel);
+
+        List<Employee> remainingEmployees = employeeGenerator.employees.Except(employeeGenerator.newEmployees).ToList();
+
+        ToggleEmployeesGrid(remainingEmployees, continuingEmployeesPanel, continuingEmployeesText);
+        GeneratePhotos(remainingEmployees, continuingEmployeesPanel);
         laptopUI.SetActive(true);
+    }
+
+    private void ToggleEmployeesGrid(List<Employee> employees, GameObject panel, GameObject text)
+    {
+        if (employees.Count == 0)
+        {
+            panel.SetActive(false);
+            text.SetActive(false);
+        }
+        else
+        {
+            panel.SetActive(true);
+            text.SetActive(true);
+        }
     }
 }
