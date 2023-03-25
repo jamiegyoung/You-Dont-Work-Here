@@ -4,8 +4,29 @@ using UnityEngine;
 
 public class Laptop : MonoBehaviour, Interactable
 {
+    public GameObject laptopUI;
+
+    public GameObject employeeTemplateGameObject;
+    public GameObject newEmployeesPanel;
+    public GameObject firedEmployeesPanel;
+    public GameObject continuingEmployeesPanel;
+    public EmployeeGenerator employeeGenerator;
+
+    public void Start()
+    {
+        laptopUI.SetActive(false);
+    }
     public void Interact(GameObject interactor)
     {
-        throw new System.NotImplementedException();
+        foreach (Employee newEmployee in employeeGenerator.newEmployees)
+        {
+            GameObject employeeTemplateeGameObjectClone = Instantiate(employeeTemplateGameObject, newEmployeesPanel.transform);
+            EmployeeTemplate newTemplate = employeeTemplateeGameObjectClone.GetComponent<EmployeeTemplate>();
+            newTemplate.eyes.sprite = newEmployee.eyesSprite;
+            newTemplate.mouth.sprite = newEmployee.mouthSprite;
+            newTemplate.face.sprite = newEmployee.face.faceSprite;
+            newTemplate.face.color = Color.Lerp(Color.white, new Color32(0x63, 0x4F, 0x3F, 0xFF), (float)Random.Range(0, 10) / 10);
+        }
+        laptopUI.SetActive(true);
     }
 }

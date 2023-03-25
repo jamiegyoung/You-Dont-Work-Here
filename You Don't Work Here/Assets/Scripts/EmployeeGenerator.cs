@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ public class EmployeeGenerator : MonoBehaviour
     public List<Employee> employees;
     public int initialEmployees = 4;
     public int employeeAdditionAmount = 1;
+    public List<Employee> newEmployees;
+    public List<Employee> firedEmployees;
 
     void Start()
     {
@@ -29,6 +32,7 @@ public class EmployeeGenerator : MonoBehaviour
     /// <returns>A list of the added employees</returns>
     public List<Employee> AddEmployees(int employeesToGenerate)
     {
+        this.newEmployees = new List<Employee>();
         List<Employee> newEmployees = new();
         while (employeesToGenerate > 0)
         {
@@ -51,7 +55,29 @@ public class EmployeeGenerator : MonoBehaviour
                 employeesToGenerate--;
             }
         }
+        this.newEmployees = newEmployees;
         return newEmployees;
+    }
+
+    /// <summary>
+    /// Fires a given amount of employees
+    /// </summary>
+    /// <param name="employeesToFire">The number of employees to fire</param>
+    /// <returns>A list of fired employees</returns>
+    public List<Employee> FireEmployees(int employeesToFire)
+    {
+        firedEmployees = new List<Employee>();
+
+        for (int i = 0; i < employeesToFire; i++)
+        {
+            if (employees.Count > 0)
+            {
+                int randomIndex = Random.Range(0, employees.Count);
+                firedEmployees.Add(employees[randomIndex]);
+                employees.RemoveAt(randomIndex);
+            }
+        }
+        return firedEmployees;
     }
 
     /// <summary>
