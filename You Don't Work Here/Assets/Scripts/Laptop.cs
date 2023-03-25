@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -20,7 +19,7 @@ public class Laptop : MonoBehaviour, Interactable
     private InputHandler inputHandler;
 
     //public bool isInteractable => !laptopUI.activeInHierarchy;
-    public bool isInteractable => true;
+    public bool IsInteractable => true;
 
     public void Start()
     {
@@ -65,8 +64,8 @@ public class Laptop : MonoBehaviour, Interactable
                 template.glasses.color = new Color32(0, 0, 0, 0);
             }
 
-            template.setFirstName(employee.firstName);
-            template.setLastName(employee.lastName);
+            template.SetFirstName(employee.firstName);
+            template.SetLastName(employee.lastName);
         }
     }
 
