@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using UnityEngine;
 
 public class EmployeeGenerator : MonoBehaviour
@@ -12,14 +9,18 @@ public class EmployeeGenerator : MonoBehaviour
     public Sprite[] mouthSprites;
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
-    public int initialEmployees;
-    public int employeeAdditionAmount;
+    public int initialEmployees = 4;
+    public int employeeAdditionAmount = 1;
+    public List<Employee> newEmployees;
+    public List<Employee> firedEmployees;
 
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         int employeesToGenerate = initialEmployees - employees.Count;
         AddEmployees(employeesToGenerate);
+        AddEmployees(employeesToGenerate);
+        FireEmployees(2);
     }
 
     /// <summary>
@@ -29,6 +30,7 @@ public class EmployeeGenerator : MonoBehaviour
     /// <returns>A list of the added employees</returns>
     public List<Employee> AddEmployees(int employeesToGenerate)
     {
+        this.newEmployees = new List<Employee>();
         List<Employee> newEmployees = new();
         while (employeesToGenerate > 0)
         {
@@ -51,7 +53,31 @@ public class EmployeeGenerator : MonoBehaviour
                 employeesToGenerate--;
             }
         }
+        this.newEmployees = newEmployees;
         return newEmployees;
+    }
+
+    /// <summary>
+    /// Fires a given amount of employees
+    /// </summary>
+    /// <param name="employeesToFire">The number of employees to fire</param>
+    /// <returns>A list of fired employees</returns>
+    public List<Employee> FireEmployees(int employeesToFire)
+    {
+        firedEmployees = new List<Employee>();
+
+        for (int i = 0; i < employeesToFire; i++)
+        {
+            if (employees.Count > 0)
+            {
+                int randomIndex = Random.Range(0, employees.Count);
+                firedEmployees.Add(employees[randomIndex]);
+                // Just in-case they were hired and fired very quickly
+                newEmployees.Remove(employees[randomIndex]);
+                employees.RemoveAt(randomIndex);
+            }
+        }
+        return firedEmployees;
     }
 
     /// <summary>
@@ -67,12 +93,16 @@ public class EmployeeGenerator : MonoBehaviour
         int mouthIndex = Random.Range(0, mouthSprites.Length);
         int employeeTypeIndex = Random.Range(0, employeeTypes.Length);
         EmployeeType et = employeeTypes[employeeTypeIndex];
-
         Employee employee = new()
         {
             id = employeeId,
             face = faces[faceIndex],
+            faceColor = Color.Lerp(
+                Color.white,
+                new Color32(0x63, 0x4F, 0x3F, 0xFF),
+                (float)Random.Range(0, 10) / 10),
             hairSprite = faces[faceIndex].hairSprites[hairIndex],
+            hairColor = GenerateHairColor(),
             eyesSprite = eyeSprites[eyesIndex],
             mouthSprite = mouthSprites[mouthIndex],
             wearsGlasses = Random.Range(0, 3) == 0,
@@ -81,5 +111,17 @@ public class EmployeeGenerator : MonoBehaviour
             speechType = et.speechType
         };
         return employee;
+    }
+
+    private static Color GenerateHairColor()
+    {
+        if (Random.Range(0, 10) == 0)
+        {
+            return new Color32(0xCD, 0xCD, 0xCD, 0xFF);
+        }
+        return Color.Lerp(
+            new Color32(0xFF, 0xD4, 0x47, 0xFF),
+            new Color32(0x1B, 0x19, 0x17, 0xFF),
+            (float)Random.Range(0, 10) / 10);
     }
 }

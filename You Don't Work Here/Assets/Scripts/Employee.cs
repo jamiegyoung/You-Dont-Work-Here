@@ -45,7 +45,9 @@ public class Employee
     public string lastName;
     public SpeechType speechType;
     public FaceType face;
+    public Color faceColor;
     public Sprite hairSprite;
+    public Color hairColor;
     public Sprite eyesSprite;
     public Sprite mouthSprite;
     public bool wearsGlasses;
