@@ -24,6 +24,7 @@ public class EmployeeGenerator : MonoBehaviour
         int employeesToGenerate = initialEmployees - employees.Count;
         AddEmployees(employeesToGenerate);
         AddEmployees(employeesToGenerate);
+        FireEmployees(2);
     }
 
     /// <summary>
@@ -75,6 +76,8 @@ public class EmployeeGenerator : MonoBehaviour
             {
                 int randomIndex = Random.Range(0, employees.Count);
                 firedEmployees.Add(employees[randomIndex]);
+                // Just in-case they were hired and fired very quickly
+                newEmployees.Remove(employees[randomIndex]);
                 employees.RemoveAt(randomIndex);
             }
         }
