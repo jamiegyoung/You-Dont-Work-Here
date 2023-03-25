@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,4 +12,20 @@ public class EmployeeTemplate : MonoBehaviour
     public Image eyes;
     public Image hair;
     public Image glasses;
+    public TextMeshProUGUI text;
+
+    public string _firstName;
+    public string _lastName;
+
+    public void setFirstName(string firstName)
+    {
+        _firstName = firstName;
+        text.text = _firstName + " " + _lastName;
+    }
+
+    public void setLastName(string lastName)
+    {
+        _lastName = lastName;
+        text.text = _firstName + " " + _lastName;
+    }
 }

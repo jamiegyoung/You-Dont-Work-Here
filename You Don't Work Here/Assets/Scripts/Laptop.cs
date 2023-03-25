@@ -25,7 +25,10 @@ public class Laptop : MonoBehaviour, Interactable
             newTemplate.eyes.sprite = newEmployee.eyesSprite;
             newTemplate.mouth.sprite = newEmployee.mouthSprite;
             newTemplate.face.sprite = newEmployee.face.faceSprite;
-            newTemplate.face.color = Color.Lerp(Color.white, new Color32(0x63, 0x4F, 0x3F, 0xFF), (float)Random.Range(0, 10) / 10);
+            newTemplate.face.color = Color.Lerp(
+                Color.white,
+                new Color32(0x63, 0x4F, 0x3F, 0xFF),
+                (float)Random.Range(0, 10) / 10);
             newTemplate.hair.sprite = newEmployee.hairSprite;
 
             // 1 in 10 chance of being gray
@@ -49,6 +52,9 @@ public class Laptop : MonoBehaviour, Interactable
                 // Make the glasses transparent
                 newTemplate.glasses.color = new Color32(0, 0, 0, 0);
             }
+
+            newTemplate.setFirstName(newEmployee.firstName);
+            newTemplate.setLastName(newEmployee.lastName);
         }
         laptopUI.SetActive(true);
     }
