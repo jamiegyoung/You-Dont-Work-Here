@@ -77,7 +77,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -350476293
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &1971278889181084354
@@ -243,7 +243,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -350476293
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.09433961, g: 0.087664634, b: 0.087664634, a: 1}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971278890302731472}
-  - component: {fileID: 1971278890302731473}
+  - component: {fileID: 4444713465390933963}
   m_Layer: 5
   m_Name: InteractionInformer
   m_TagString: Untagged
@@ -290,7 +290,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1971278890302731473
+--- !u!114 &4444713465390933963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,8 +299,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971278890302731486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3936f4db5c877064ba84001a926a3032, type: 3}
+  m_Script: {fileID: 11500000, guid: dcd24e2cec9d5304db19eedb2cffc044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputPrompt: {fileID: 0}
-  lockGameObject: {fileID: 0}
+  inputPrompt: {fileID: 1971278889181084352}
