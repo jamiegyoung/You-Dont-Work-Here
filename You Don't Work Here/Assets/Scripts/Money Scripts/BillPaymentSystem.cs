@@ -62,7 +62,7 @@ public class BillPaymentSystem : ScriptableObject
     /// Method <c>GetBills</c> returns a Bills object which contains the 3 bill costs.
     /// </summary>
 
-    public bool GetBills()
+    public Bills GetBills()
     {
         return new Bills(gasBill, foodBill, electricityBill);
 
