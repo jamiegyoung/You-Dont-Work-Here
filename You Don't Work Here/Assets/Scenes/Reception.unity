@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 14111311}
   - component: {fileID: 14111315}
   - component: {fileID: 14111312}
-  - component: {fileID: 14111316}
+  - component: {fileID: 14111317}
   m_Layer: 5
   m_Name: EmployeeCloseUp
   m_TagString: Untagged
@@ -160,7 +160,7 @@ RectTransform:
   - {fileID: 1464908337}
   - {fileID: 1355390421}
   m_Father: {fileID: 1808793013}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -177,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 14111310}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4180ffdff1240ff4eac27a2be7e9d966, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -196,18 +196,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14111310}
   m_CullTransparentMesh: 1
---- !u!114 &14111316
-MonoBehaviour:
+--- !u!225 &14111317
+CanvasGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14111310}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41365ca10d03e814789f4debc3fe9b4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &42510292
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,7 +987,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1808793013}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1067,7 +1067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -3.9}
+  m_AnchoredPosition: {x: -400.00006, y: -3.9}
   m_SizeDelta: {x: 800, y: 374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499506467
@@ -1407,7 +1407,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1808793013}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1978,9 +1978,9 @@ RectTransform:
   - {fileID: 2080855293}
   - {fileID: 548048171}
   - {fileID: 1230084184}
-  - {fileID: 877270107}
   - {fileID: 413872139}
   - {fileID: 14111311}
+  - {fileID: 877270107}
   - {fileID: 111432650}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -2022,6 +2022,12 @@ MonoBehaviour:
   walkInEmployee: {fileID: 2080855292}
   acceptEmployee: {fileID: 548048170}
   rejectEmployee: {fileID: 1230084183}
+  closeUpEmployee: {fileID: 14111310}
+  face: {fileID: 0}
+  eyes: {fileID: 0}
+  hair: {fileID: 0}
+  mouth: {fileID: 0}
+  glasses: {fileID: 0}
 --- !u!4 &1828363556
 Transform:
   m_ObjectHideFlags: 0
