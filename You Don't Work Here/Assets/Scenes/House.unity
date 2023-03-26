@@ -484,6 +484,290 @@ MonoBehaviour:
       - That's proper bad!
       - This is well out of order!
       - After all I do for you!
+  - firstNames:
+    - Alistair
+    - Angus
+    - Callum
+    - Cameron
+    - Dougal
+    - Ewan
+    - Struan
+    - Hamish
+    - Lauchlan
+    - Magnus
+    - Niall
+    - Ross
+    - Aila
+    - Eilidh
+    - Fiona
+    - Iona
+    - Kirsten
+    - Moira
+    - Morven
+    - Rowan
+    - Skye
+    - Una
+    - Blair
+    lastNames:
+    - Brown
+    - Henderson
+    - Clark
+    - Wallace
+    - Stewart
+    - McGregor
+    - McMillan
+    - McPherson
+    - Murray
+    - Scott
+    - Sinclair
+    - Thompson
+    - Fraser
+    speechType:
+      introductionText:
+      - Alright? Hows it goin?
+      - Alright?
+      - Hows it goin?
+      - Ho ye!
+      - How are ye?
+      - "Hal\xF2!"
+      - Hello!
+      takingTimeText:
+      - Whits the haud up?
+      - Greas ort (Hurry up)
+      - Take yer time...
+      - Yer at it come on.
+      - Ave no time fur this.
+      - Come on speed it up a bit.
+      - Aw come on man Ive hings tae dae.
+      acceptionText:
+      - Aboot time
+      - Cheers
+      - Yer Braw(You're Fine)
+      - Yer a star
+      - Yer some man
+      - Whit a gem you are
+      - Tapadh leibh (Thank you)
+      rejectionText:
+      - Yer aff yer heid!!
+      - Yer at it!
+      - Yer a chancer
+      - You wantin leathered?
+      - A Cannae Believe it!
+      - Oot ae Order mate
+      - Aye nae bother..
+  - firstNames:
+    - Chad
+    - Tyler
+    - Cody
+    - Brad
+    - Thad
+    - Ryan
+    - Brandon
+    - Justin
+    - Kevin
+    - Jason
+    - Hunter
+    - Todd
+    - Shane
+    - Tiffany
+    - Heather
+    - Amber
+    - Jessica
+    - Madison
+    - Brianna
+    - Amanda
+    - Emily
+    - Sarah
+    - Kaitlyn
+    lastNames:
+    - Smith
+    - Johnson
+    - Jackson
+    - Miller
+    - Jones
+    - Lewis
+    - Green
+    - Clark
+    - Young
+    - Wilson
+    - Thompson
+    - Martin
+    - Wood
+    speechType:
+      introductionText:
+      - Hi there.
+      - Hey there.
+      - Good Morning.
+      - Howdy
+      - Greetings
+      - Whats up?
+      - Hey
+      takingTimeText:
+      - Come on ive got places to be
+      - Chop chop
+      - Time's a-wasting buddy
+      - Tick tock
+      - Move it along buster
+      - Get a move on ive got work to do
+      - Hurry up man im not staying late
+      acceptionText:
+      - Thank you
+      - Thanks mate
+      - Thanks a million
+      - You rule man
+      - Thanks a lot man
+      - About time
+      - Alright finally...
+      rejectionText:
+      - Give me a break man...
+      - Are you kidding me?
+      - Do you have any idea who i am?
+      - Who do you think you are?
+      - Whatever... i dont have time for this
+      - What a joke... i'll be complaining
+      - ....Alright
+  - firstNames:
+    - Bjorn
+    - Erik
+    - Lars
+    - Henrik
+    - Anders
+    - Magnus
+    - Sven
+    - Oskar
+    - Leif
+    - Olaf
+    - Finn
+    - Ulf
+    - Astrid
+    - Elin
+    - Linnea
+    - Ebba
+    - Greta
+    - Kari
+    - Lotta
+    - Saga
+    - Sigrid
+    - Siv
+    - Hanne
+    lastNames:
+    - Andersen
+    - Jensen
+    - Larsen
+    - Olsen
+    - Hansen
+    - Lindberg
+    - Jonsson
+    - Mikkelsen
+    - Karlsson
+    - Svensson
+    - Jansson
+    - Pedersen
+    - Christensen
+    speechType:
+      introductionText:
+      - Hei
+      - Hallo there
+      - God morgen (Good Morning)
+      - Hej there
+      - Hello there friend
+      - "G\xF3\xF0an daginn ( Good day)"
+      - "Heil og s\xE6l (Be Healthy and happy)"
+      takingTimeText:
+      - Skynd deg (Hurry up!)
+      - Kan vi komme videre(Can we Move along please)
+      - Can we speed things up my friend?
+      - My friend i have work to complete can we maybe move it along?
+      - ' Kom nu.. (Come on)'
+      - My friend i have a meeting soon....
+      - Whats taking so long my friend?
+      acceptionText:
+      - Takk (Thanks)
+      - Tusen takk (A thousand Thanks)
+      - Thank you my friend!
+      - Jag uppskattar det (I Appreciate it)
+      - I Appreciate this my friend.
+      - Thank you very much my friend
+      - Mange tak (Many Thanks)
+      rejectionText:
+      - Du er en tufs (You are a fool)
+      - Du er en klyse (You are a wimp)
+      - And i thought you were my friend.
+      - I will not forget this
+      - Dissapointing
+      - Hm.......Fine
+      - "Se hvor du g\xE5r"
+  - firstNames:
+    - Connor
+    - Aoife
+    - Sean
+    - Jack
+    - Saoirse
+    - Ciara
+    - Liam
+    - Niamh
+    - Aodhan
+    - Declan
+    - Aidan
+    - Caoimhe
+    - James
+    - Amy
+    - Ava
+    - Chloe
+    - Emily
+    - Grace
+    - Bevin
+    - Bradi
+    - Brin
+    - Carol
+    - John
+    lastNames:
+    - 'Murphy '
+    - Kelly
+    - Ryan
+    - O'Driscoll
+    - O'Sullivan
+    - Doyle
+    - Walsh
+    - O'Connor
+    - O'Flacarty
+    - McCarthy
+    - O'Spencer
+    - Bell
+    - Fritzpatrick
+    speechType:
+      introductionText:
+      - O Hello There
+      - Haigh (Hi)
+      - How are you doing?
+      - "What\u2019s the criac?"
+      - Hi Lad
+      - How in the name of Jaysus are ya
+      - How's it going?
+      takingTimeText:
+      - I don't mean to rush you!
+      - We have a deadline coming up!
+      - Can you try to speed things up a bit?
+      - I appreciate your attention to detail, but we're running out of time!
+      - We have a bit of a time constraint here!
+      - What's taking you so long?
+      - What's are we waiting for?
+      acceptionText:
+      - "Sl\xE1n"
+      - "Bu\xEDochas (Thank you)"
+      - A thousand thanks
+      - I'll see ya at lunch
+      - About time jeezus..
+      - See you around
+      - Thank the lord. Be seeing you.
+      rejectionText:
+      - So much for luck of the irish...
+      - "Amad\xE1n (Fool)"
+      - Are you taking the mick?
+      - Bejesus you must be joking
+      - Are you joking me?
+      - I cant be bothered with you
+      - Thats unreal!
   employees: []
   initialEmployees: 4
   employeeAdditionAmount: 1
