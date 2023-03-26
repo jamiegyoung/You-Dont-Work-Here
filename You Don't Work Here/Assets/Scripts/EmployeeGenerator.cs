@@ -13,15 +13,15 @@ public class EmployeeGenerator : MonoBehaviour
     public int employeeAdditionAmount = 1;
     public List<Employee> newEmployees;
     public List<Employee> firedEmployees;
-    public static EmployeeGenerator employeeGeneratorInstance;
+    public static EmployeeGenerator instance;
 
     void Start()
     {
-        if (employeeGeneratorInstance != null && employeeGeneratorInstance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
         }
-        employeeGeneratorInstance = this;
+        instance = this;
         DontDestroyOnLoad(gameObject);
         int employeesToGenerate = initialEmployees - employees.Count;
         AddEmployees(employeesToGenerate);
