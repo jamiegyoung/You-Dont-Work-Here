@@ -359,6 +359,341 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &296546422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 296546424}
+  - component: {fileID: 296546423}
+  m_Layer: 0
+  m_Name: EmployeeGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &296546423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296546422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1e2ebcbed0d904e86660f61674d877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faces:
+  - faceSprite: {fileID: 278656673, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    glassesSprite: {fileID: 1237213237, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    hairSprites:
+    - {fileID: 430468463, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    - {fileID: -1438902573, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    - {fileID: 1183559941, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    - {fileID: 1741704123, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    - {fileID: -1011847591, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+    - {fileID: -1850512412, guid: 76dd1f28274f0c64a8c74942d7044fb0, type: 3}
+  - faceSprite: {fileID: 2069118013, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    glassesSprite: {fileID: -181351291, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    hairSprites:
+    - {fileID: -1709217625, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    - {fileID: 930143374, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    - {fileID: -619193808, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    - {fileID: -1121457255, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    - {fileID: 2143857919, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+    - {fileID: 1325456580, guid: 68dfc6ac3770f654794d8c08cb3802bc, type: 3}
+  - faceSprite: {fileID: 1550252133, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    glassesSprite: {fileID: -1049391464, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    hairSprites:
+    - {fileID: -733031199, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: 2024675788, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: -562763825, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: 348764299, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: -317664557, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: 1429726789, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+  - faceSprite: {fileID: 1375911463, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    glassesSprite: {fileID: 1550964242, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    hairSprites:
+    - {fileID: -751651014, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: -2056140884, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: 1191370320, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: 291324807, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: -317664557, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+    - {fileID: 1429726789, guid: cd729e71abc89df4e9ed3aeb9c1647f0, type: 3}
+  - faceSprite: {fileID: 1375911463, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    glassesSprite: {fileID: 1550964242, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    hairSprites:
+    - {fileID: -751651014, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: -2056140884, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: 1191370320, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: 291324807, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: -1786689853, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+    - {fileID: -928396642, guid: dfdceb52b7ae7454988514bc5214335a, type: 3}
+  - faceSprite: {fileID: 676849763, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    glassesSprite: {fileID: 72722480, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    hairSprites:
+    - {fileID: 548864034, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    - {fileID: -1769757592, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    - {fileID: -2081074289, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    - {fileID: -2034550801, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    - {fileID: 668680835, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+    - {fileID: 408529915, guid: 6ae8f63452cf64646a4123cfed7bd498, type: 3}
+  - faceSprite: {fileID: 1012966017, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    glassesSprite: {fileID: -632163140, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    hairSprites:
+    - {fileID: -627160887, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    - {fileID: 882951859, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    - {fileID: 1328446706, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    - {fileID: 1196555928, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    - {fileID: -889194416, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+    - {fileID: -675753138, guid: d5f117216dfa6d84d9b0ad49ae91bb88, type: 3}
+  - faceSprite: {fileID: -638226829, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    glassesSprite: {fileID: -740922656, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    hairSprites:
+    - {fileID: 1953686359, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    - {fileID: 621074244, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    - {fileID: 1582569729, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    - {fileID: 1460858469, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    - {fileID: -1584666644, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+    - {fileID: -460812552, guid: 4d275e9b07f67c44ab27a1e597af69b2, type: 3}
+  - faceSprite: {fileID: -662441263, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    glassesSprite: {fileID: -882017650, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    hairSprites:
+    - {fileID: -1554790640, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    - {fileID: -1350466999, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    - {fileID: 205853424, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    - {fileID: 1062491673, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    - {fileID: 628977232, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+    - {fileID: 1934984305, guid: 7a89f7abfe230b84782bf0052a27d077, type: 3}
+  eyeSprites:
+  - {fileID: -981606396, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: 1872791051, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -1920734170, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -747218520, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -435063142, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: 10839343, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -533440678, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -1599720888, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  mouthSprites:
+  - {fileID: -37404063, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -183892447, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -2063513072, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -2065833659, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: 1699841202, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: -1210660022, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: 272347401, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  - {fileID: 2085097150, guid: 634e18adef0d20c4d949c8f3eab59de4, type: 3}
+  employeeTypes:
+  - firstNames:
+    - Anastasia
+    - Ivan
+    - Ekaterina
+    - Alexander
+    - Maria
+    - Dmitry
+    - Olga
+    - Natalia
+    - Mikhail
+    lastNames:
+    - Ivanov
+    - Smirnov
+    - Petrov
+    - Sokolov
+    - Popov
+    - Kuznetsov
+    - Morozov
+    - Novikov
+    - Pavlov
+    - Fedorov
+    - Sidorov
+    speechType:
+      introductionText:
+      - Hello, I have come to work!
+      - Hello, how you do?
+      - Good morning, nice to see you!
+      - Good morning, have nice day?
+      - Good evening, you are how?
+      takingTimeText:
+      - Please, hurry up!
+      - You very slow work!
+      - How much time you need!?
+      - You take very much time!
+      acceptionText:
+      - You is welcome!
+      - Thank you very much, very appreciate!
+      - Have nice weekend!
+      - You are very kind!
+      rejectionText:
+      - I do not understand!
+      - You are mistaken!
+      - You are not right!
+      - You are talking nonsense!
+      - You made a mistake!
+  - firstNames:
+    - Noah
+    - Leo
+    - Alexander
+    - Oliver
+    - George
+    - Adam
+    - Arthur
+    - David
+    - Daniel
+    - Henry
+    - Jack
+    - Thomas
+    - Nathan
+    - Daniel
+    - Amelia
+    - Olivia
+    - Maya
+    - Sofia
+    - Isabella
+    - Ava
+    - Lily
+    - Freya
+    - Emily
+    lastNames:
+    - Smith
+    - Jones
+    - Williams
+    - Brown
+    - Taylor
+    - Johnson
+    - Wilson
+    - Thomas
+    - Robinson
+    - Clark
+    - Davies
+    - White
+    - Wood
+    speechType:
+      introductionText:
+      - Good day, pleasure to see you
+      - Hello, how are you?
+      - You alright?
+      - Oi oi!
+      - What's new?
+      - How's it going?
+      takingTimeText:
+      - "You're taking donkey\u2019s years!"
+      - Get a move on!
+      - Chop chop!
+      - Hurry up!
+      - Come on then!
+      - What's taking you so long?
+      - What's are we waiting for?
+      acceptionText:
+      - Cheers mate!
+      - Nice one!
+      - You're a star!
+      - Much appreciated!
+      - Ta!
+      - You're a legend!
+      - I owe you one!
+      rejectionText:
+      - Get stuffed
+      - Oi oi! you can't do that!
+      - That's bang out of order!
+      - You're having a laugh!
+      - You're joking!
+      - That's not fair!
+  - firstNames:
+    - Noah
+    - Leo
+    - Alexander
+    - Oliver
+    - George
+    - Adam
+    - Arthur
+    - David
+    - Daniel
+    - Henry
+    - Jack
+    - Thomas
+    - Nathan
+    - Daniel
+    - Amelia
+    - Olivia
+    - Maya
+    - Sofia
+    - Isabella
+    - Ava
+    - Lily
+    - Freya
+    - Emily
+    lastNames:
+    - Smith
+    - Jones
+    - Williams
+    - Brown
+    - Taylor
+    - Johnson
+    - Wilson
+    - Thomas
+    - Robinson
+    - Clark
+    - Davies
+    - White
+    - Wood
+    speechType:
+      introductionText:
+      - Good day, pleasure to see you
+      - Hello, how are you?
+      - You alright?
+      - Oi oi!
+      - What's new?
+      - How's it going?
+      - How's it going?
+      takingTimeText:
+      - I don't mean to rush you!
+      - We have a deadline coming up!
+      - Can you try to speed things up a bit?
+      - I appreciate your attention to detail, but we're running out of time!
+      - We have a bit of a time constraint here!
+      - What's taking you so long?
+      - What's are we waiting for?
+      acceptionText:
+      - Cheers!
+      - Much obliged, mate!
+      - I appreciate it
+      - You're a star
+      - You're a hero!
+      - Nice one!
+      - Ta!
+      rejectionText:
+      - Ey up! What's this all about then!
+      - You can't do this to me!
+      - "You\u2019re having a laugh, aren\u2019t you?"
+      - Ey up! This is a load of rubbish!
+      - That's proper bad!
+      - This is well out of order!
+      - After all I do for you!
+  employees: []
+  initialEmployees: 4
+  employeeAdditionAmount: 1
+  newEmployees: []
+  firedEmployees: []
+--- !u!4 &296546424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296546422}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303764432
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: 13.348038}
+  m_AnchoredPosition: {x: -400.00006, y: 13.348038}
   m_SizeDelta: {x: 800, y: 374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499506467
@@ -713,9 +1048,9 @@ RectTransform:
   m_Father: {fileID: 1808793013}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2, y: 10.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 343.2, y: 10.5}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471151578
@@ -862,6 +1197,51 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1828363554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828363556}
+  - component: {fileID: 1828363555}
+  m_Layer: 0
+  m_Name: EmployeeHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1828363555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828363554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74228b0332a65b94caa961c32a67cdbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  employee: {fileID: 2080855292}
+--- !u!4 &1828363556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828363554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3146791, y: 0.96481454, z: 91.15768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939737063
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,9 +1275,9 @@ RectTransform:
   m_Father: {fileID: 1808793013}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -348.6, y: -3}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 331.4, y: -3}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1939737065
@@ -973,9 +1353,9 @@ RectTransform:
   m_Father: {fileID: 1808793013}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 23}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: -360, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!320 &2080855294
@@ -988,7 +1368,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 11fc91994cc29fd49ab5f1a6dad9b39e, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
