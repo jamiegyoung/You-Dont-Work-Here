@@ -1227,6 +1227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employee: {fileID: 2080855292}
+  walkInTimeline: {fileID: 11400000, guid: 11fc91994cc29fd49ab5f1a6dad9b39e, type: 2}
+  acceptTimeline: {fileID: 0}
+  rejectTimeline: {fileID: 0}
 --- !u!4 &1828363556
 Transform:
   m_ObjectHideFlags: 0
@@ -1367,7 +1370,7 @@ PlayableDirector:
   m_GameObject: {fileID: 2080855292}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 11fc91994cc29fd49ab5f1a6dad9b39e, type: 2}
+  m_PlayableAsset: {fileID: 0}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
