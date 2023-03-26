@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReceptionInteractableLoader : MonoBehaviour, Interactable
+public class SceneInteractableLoader : MonoBehaviour, Interactable
 {
     public SceneLoader sceneLoader;
-
+    public SceneLoader.Level level;
     public bool IsInteractable => true;
 
     public void Interact(GameObject interactor)
     {
-        sceneLoader.LoadLevel(SceneLoader.Levels.Reception);
+        sceneLoader.LoadLevel(level);
     }
 
 }
