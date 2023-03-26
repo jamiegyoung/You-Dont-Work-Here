@@ -3048,6 +3048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laptop
       objectReference: {fileID: 0}
+    - target: {fileID: 7971616973800022762, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8020219710639069440, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3118,12 +3122,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8386936735480255900, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 331.23584
+      value: 353.1828
       objectReference: {fileID: 0}
     - target: {fileID: 8394733330943040638, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1350007575}
+    - target: {fileID: 8394733330943040638, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394733330943040638, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8394733330943040638, guid: b534012b59d1fda4197fe3105cb362f7, type: 3}
       propertyPath: m_SortingOrder
       value: 100
