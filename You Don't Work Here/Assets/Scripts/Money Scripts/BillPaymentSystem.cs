@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class PlayerMoney : ScriptableObject
+public class BillPaymentSystem : ScriptableObject
 {
     [SerializeField]
     private PlayerMoney player;
@@ -38,7 +39,7 @@ public class PlayerMoney : ScriptableObject
     /// Method <c>IncreaseBills</c> increases the value of the bills due by the calculated amount for that day.
     /// </summary>
     /// <param name="day">An integer representing the current day.</param>
-    public float IncreaseBills(int day)
+    public void IncreaseBills(int day)
     {
         electricityBill += CalculateBill(electricityBill, day);
         gasBill += CalculateBill(gasCost, day);
@@ -53,38 +54,52 @@ public class PlayerMoney : ScriptableObject
     /// <param name="day">An integer representing the current day.</param>
     private float CalculateBill(float cost, int day)
     {
-        return Math.Round((decimal)(cost * Math.Pow(increaseCost, day)), 2);
+        return (float)Math.Round((cost * Math.Pow(increaseCost, day)), 2);
+    }
+
+
+    /// <summary>
+    /// Method <c>GetBills</c> returns a Bills object which contains the 3 bill costs.
+    /// </summary>
+
+    public bool GetBills()
+    {
+        return new Bills(gasBill, foodBill, electricityBill);
+
     }
 
     /// <summary>
-    /// Method <c>PayBills</c> takes in 3 boolean, representing whether or not the electricity, gas and food bill is to be paid.
+    /// Method <c>PayBills</c> takes in a Bills object containing 3 boolean, representing whether or not the electricity, gas and food bill is to be paid.
     /// If bank balance can afford to pay selected bills, then the money will be withdrawn and bills set to £0.
     /// </summary>
-    /// <param name="electricity">Boolean representing whether the electricity bill should be paid</param>
-    /// <param name="gas">Boolean representing whether the gas bill should be paid</param>
-    ///<param name="food">Boolean representing whether the food bill should be paid</param>
-    public float PayBills(bool electricity, bool gas, bool food)
+    /// <param name="bills">Bills object with 3 bools representing whether each bill should be paid</param>
+    public bool PayBills(Bills bills)
     {
         float total = 0;
-        if (electricity)
+        if (bills.payElectricity)
             total += electricityBill;
-        if (gas)
+        if (bills.payGas)
             total += gasBill;
-        if (food)
+        if (bills.payFood)
             total += foodBill;
 
 
         if (player.Withdraw(total))
         {
-            if (electricity)
+            if (bills.payElectricity)
                 electricityBill = 0;
-            if (gas)
+            if (bills.payGas)
                 gasBill = 0;
-            if (food)
+            if (bills.payFood)
                 foodBill = 0;
+            return true;
         }
-
+        else
+        {
+            return false;
+        }
     }
+
 
     /// <summary>
     /// Method <c>BreakBoiler</c> sets the state of the boiler to 'broken'
@@ -93,6 +108,7 @@ public class PlayerMoney : ScriptableObject
     {
         boilerBroken = true;
     }
+
 
     /// <summary>
     /// Method <c>FixBoiler</c> sets the state of the boiler to 'fixed' and withdraws the cost if the player has enough money to pay for it in their account.

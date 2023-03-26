@@ -30,10 +30,17 @@ public class PlayerMoney : ScriptableObject
     /// Method <c>Withdraw</c> withdraws a given value from the players current bank balance.
     /// </summary>
     /// <param name="value">Value to decrement bank balance by.</param>
-    ///<returns> A boolean representing whether or not the withdrawal was succesfull </returns>
+    ///<returns> A boolean representing whether or not the withdrawal was succesful </returns>
     public bool Withdraw(float value)
     {
-        balance -= value;
-        return balance;
+        if (balance >= value)
+        {
+            balance -= value;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
