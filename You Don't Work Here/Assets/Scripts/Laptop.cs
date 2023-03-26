@@ -56,6 +56,7 @@ public class Laptop : MonoBehaviour, Interactable
             template.hair.color = employee.hairColor;
             if (employee.wearsGlasses)
             {
+                template.glasses.color = new Color32(255, 255, 255, 255);
                 template.glasses.sprite = employee.face.glassesSprite;
             }
             else

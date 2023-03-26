@@ -15,7 +15,7 @@ public class EmployeeHandler : MonoBehaviour
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
-    private PlayableDirector pd;
+    //private PlayableDirector pd;
     public Image face;
     public Image eyes;
     public Image hair;
@@ -56,6 +56,22 @@ public class EmployeeHandler : MonoBehaviour
     private IEnumerator WaitForUserProcessing()
     {
         // https://answers.unity.com/questions/586609/waiting-for-input-via-coroutine.html
+        eyes.sprite = currentEmployee.eyesSprite;
+        hair.sprite = currentEmployee.hairSprite;
+        hair.color = currentEmployee.hairColor;
+        face.sprite = currentEmployee.face.faceSprite;
+        face.color = currentEmployee.faceColor;
+        if (currentEmployee.wearsGlasses)
+        {
+            glasses.color = new Color32(255, 255, 255, 255);
+            glasses.sprite = currentEmployee.face.glassesSprite;
+        }
+        else
+        {
+            // Make the glasses transparent
+            glasses.color = new Color32(0, 0, 0, 0);
+        }
+        mouth.sprite = currentEmployee.mouthSprite;
         closeUpEmployee.SetActive(true);
         yield return new WaitForSeconds(4);
         closeUpAnim.SetTrigger("accept");
@@ -68,7 +84,6 @@ public class EmployeeHandler : MonoBehaviour
         walkInEmployee.SetActive(false);
         yield return StartCoroutine(PlayTimelineRoutine(acceptEmployee, acceptEmployeePlayable));
         closeUpEmployee.SetActive(false);
-
     }
 
     private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable, IEnumerator onComplete, float timelineEndingOffset)

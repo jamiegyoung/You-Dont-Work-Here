@@ -2023,11 +2023,11 @@ MonoBehaviour:
   acceptEmployee: {fileID: 548048170}
   rejectEmployee: {fileID: 1230084183}
   closeUpEmployee: {fileID: 14111310}
-  face: {fileID: 0}
-  eyes: {fileID: 0}
-  hair: {fileID: 0}
-  mouth: {fileID: 0}
-  glasses: {fileID: 0}
+  face: {fileID: 1051265408}
+  eyes: {fileID: 571606999}
+  hair: {fileID: 276041619}
+  mouth: {fileID: 1464908338}
+  glasses: {fileID: 1355390422}
 --- !u!4 &1828363556
 Transform:
   m_ObjectHideFlags: 0
