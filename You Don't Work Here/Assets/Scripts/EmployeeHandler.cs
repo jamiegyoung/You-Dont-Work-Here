@@ -67,6 +67,8 @@ public class EmployeeHandler : MonoBehaviour
         acceptEmployee.SetActive(true);
         walkInEmployee.SetActive(false);
         yield return StartCoroutine(PlayTimelineRoutine(acceptEmployee, acceptEmployeePlayable));
+        closeUpEmployee.SetActive(false);
+
     }
 
     private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable, IEnumerator onComplete, float timelineEndingOffset)
