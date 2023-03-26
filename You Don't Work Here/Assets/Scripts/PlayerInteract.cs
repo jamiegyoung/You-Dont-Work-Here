@@ -10,7 +10,6 @@ public class PlayerInteract : MonoBehaviour
     private BoxCollider2D coll;
     private InputHandler inputHandler;
     private InteractionInformer interactionInformer;
-    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +17,13 @@ public class PlayerInteract : MonoBehaviour
         coll = GetComponent<BoxCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
         inputHandler = new InputHandler(GetComponent<PlayerInput>());
-        rb = GetComponent<Rigidbody2D>();
         interactionInformer = transform.Find("InteractionInformer").GetComponent<InteractionInformer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, GetDirectionVector(), 1f, interactableMask + blockingMask);
+        RaycastHit2D hit = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, GetDirectionVector(), .5f, interactableMask + blockingMask);
         if (hit.collider == null)
         {
             interactionInformer.Hide();
@@ -33,19 +31,21 @@ public class PlayerInteract : MonoBehaviour
         }
 
         Vector3 hitPos = hit.collider.transform.position;
-        // Hit blocking, not interactableZ
+        // Hit blocking, not interactable, potentially could cause an error
         Interactable interactable = hit.collider.GetComponent<Interactable>();
         if (interactable == null)
         {
             interactionInformer.Hide();
             return;
         }
-        Vector2 interactionInformerPos = new(hitPos.x, hitPos.y + hit.collider.bounds.size.y - 1f);
+        Vector2 interactionInformerPos = new(hitPos.x, hitPos.y + hit.collider.bounds.size.y);
         interactionInformer.Show(interactionInformerPos, inputHandler.GetBindingDisplayString(InputHandlerActions.Interact));
 
-        if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact))
+        if (inputHandler.WasPressedThisFrame(InputHandlerActions.Interact) && interactable.IsInteractable)
         {
-            interactable.Interact(gameObject);
+            {
+                interactable.Interact(gameObject);
+            }
         }
     }
 
