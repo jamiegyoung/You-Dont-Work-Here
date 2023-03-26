@@ -6,7 +6,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Animator animator;
 
-    public enum Levels
+    public enum Level
     {
         Menu,
         Intro,
@@ -15,12 +15,12 @@ public class SceneLoader : MonoBehaviour
         Reception
     }
 
-    public void LoadLevel(Levels levels)
+    public void LoadLevel(Level levels)
     {
         StartCoroutine(AnimationLoad(levels));
     }
 
-    private IEnumerator AnimationLoad(Levels level)
+    private IEnumerator AnimationLoad(Level level)
     {
         animator.SetTrigger("Start");
 
