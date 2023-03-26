@@ -1781,10 +1781,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1926297296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a45e9ff39ac752d43bdad6d7d203866f, type: 3}
+  m_Script: {fileID: 11500000, guid: ed1d990857e4e9f418ea15db25eea5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 1972076793}
+  level: 3
 --- !u!114 &1972076793 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8900869583322337850, guid: 0cc4d86027d365347b8cf92995d3132b, type: 3}
