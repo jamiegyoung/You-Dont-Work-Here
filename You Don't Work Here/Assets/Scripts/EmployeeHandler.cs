@@ -7,38 +7,55 @@ using UnityEngine.Timeline;
 
 public class EmployeeHandler : MonoBehaviour
 {
-    public GameObject employee;
-    public TimelineAsset walkInTimeline;
-    public TimelineAsset acceptTimeline;
-    public TimelineAsset rejectTimeline;
+    public GameObject walkInEmployee;
+    public GameObject acceptEmployee;
+    public GameObject rejectEmployee;
+    private PlayableDirector walkInEmployeePlayable;
+    private PlayableDirector acceptEmployeePlayable;
+    private PlayableDirector rejectEmployeePlayable;
+
+    private PlayableDirector pd;
 
     // Start is called before the first frame update
     void Start()
     {
-        Employee tmp = EmployeeGenerator.employeeGeneratorInstance.employees[0];
-        PlayableDirector a = employee.GetComponent<PlayableDirector>();
-        a.playableAsset = walkInTimeline;
-        Debug.Log("pog");
-        StartCoroutine(PlayTimelineRoutine(a, 1, PlayFaceAnimation));
+        walkInEmployeePlayable = walkInEmployee.GetComponent<PlayableDirector>();
+        acceptEmployeePlayable = acceptEmployee.GetComponent<PlayableDirector>();
+        rejectEmployeePlayable = rejectEmployee.GetComponent<PlayableDirector>();
+        walkInEmployee.SetActive(true);
+        acceptEmployee.SetActive(false);
+        rejectEmployee.SetActive(false);
+        StartCoroutine(PlayTimelineRoutine(walkInEmployee, walkInEmployeePlayable, PlayFaceAnimation));
     }
 
     private void PlayFaceAnimation()
     {
-        //PlayTimelineRoutine
-        Debug.Log("hiiii");
+        //pd.playableAsset = acceptTimeline;
+        //PlayTimelineRoutine(pd);
+        //Debug.Log("hiiii");
+        acceptEmployee.SetActive(true);
+        walkInEmployee.SetActive(false);
+        acceptEmployeePlayable.Play();
     }
 
 
-    private IEnumerator PlayTimelineRoutine(PlayableDirector playable, float timelineEndingOffset, Action onComplete)
+    private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable, float timelineEndingOffset, Action onComplete)
     {
+        Debug.Log("1");
+        obj.SetActive(true);
         playable.Play();
         yield return new WaitForSeconds((float)playable.duration - timelineEndingOffset);
-        onComplete();
+        if (onComplete != null) onComplete();
     }
 
-    private IEnumerator PlayTimelineRoutine(PlayableDirector playable, Action onComplete)
+    private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable, Action onComplete)
     {
-        PlayTimelineRoutine(playable, 0, PlayFaceAnimation);
+        return PlayTimelineRoutine(obj, playable, 0, onComplete);
+    }
+
+    private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable)
+    {
+        return PlayTimelineRoutine(obj, playable, 0, null);
     }
 
     // Update is called once per frame
