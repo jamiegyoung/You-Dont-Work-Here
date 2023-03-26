@@ -15,7 +15,7 @@ public class Bills
     /// <summary>
     /// Constructor method <c>Bills</c> takes in 3 floats representing the price of each bill.
     /// </summary>
-    Bills(float gasPrice, float foodPrice, float electricityPrice)
+    public Bills(float gasPrice, float foodPrice, float electricityPrice)
     {
         this.gasPrice = gasPrice;
         this.foodPrice = foodPrice;
@@ -28,7 +28,7 @@ public class Bills
     /// <param name="payGas">Bool representing whether the gas bill sould be paid.</param>
     /// <param name="payFood">Bool representing whether the food bill sould be paid.</param>
     /// <param name="payElectricity">Bool representing whether the electricity bill sould be paid.</param>
-    Bills(bool payGas, bool payFood, bool payElectricity)
+    public Bills(bool payGas, bool payFood, bool payElectricity)
     {
         this.payGas = payGas;
         this.payFood = payFood;
