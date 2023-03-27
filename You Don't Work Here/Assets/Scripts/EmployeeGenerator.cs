@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EmployeeGenerator : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class EmployeeGenerator : MonoBehaviour
     public List<Employee> newEmployees;
     public List<Employee> firedEmployees;
     public static EmployeeGenerator instance;
+    private long idCounter = 0;
 
     void Start()
     {
@@ -92,7 +95,9 @@ public class EmployeeGenerator : MonoBehaviour
     /// <returns>The randomly generated employee</returns>
     private Employee GenerateRandomEmployee()
     {
-        int employeeId = employees.Count;
+        // Could cause an overflow but there are never gonna be that many employees
+        idCounter++;
+        long employeeId = idCounter;
         int faceIndex = Random.Range(0, faces.Length);
         int hairIndex = Random.Range(0, faces[faceIndex].hairSprites.Length);
         int eyesIndex = Random.Range(0, eyeSprites.Length);
