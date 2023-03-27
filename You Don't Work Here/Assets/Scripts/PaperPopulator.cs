@@ -6,6 +6,7 @@ public class PaperPopulator : MonoBehaviour
 {
     public GameObject employeeOptionTemplate;
     public RectTransform paperContainerRectTransform;
+    public EmployeeHandler eh;
     public RectTransform paperPanelRectTransform;
     public Transform paperPanelTransform;
     private EmployeeGenerator eg;
@@ -35,7 +36,9 @@ public class PaperPopulator : MonoBehaviour
     public void OnAccept()
     {
         EmployeeOption validOption = CheckAcceptValidity();
+        Debug.Log(validOption.id);
         if (validOption == null) return;
+        eh.setAccepted(validOption);
         validOption.SetTicked(true); // just incase
         validOption.locked = true;
     }

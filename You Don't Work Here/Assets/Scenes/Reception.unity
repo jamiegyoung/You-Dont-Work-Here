@@ -609,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &296546423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,6 +1035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   employeeOptionTemplate: {fileID: 8230392854532215783, guid: 99a02f1d4d9877749835db13e022cce4, type: 3}
   paperContainerRectTransform: {fileID: 950488641}
+  eh: {fileID: 1828363555}
   paperPanelRectTransform: {fileID: 1576954436}
   paperPanelTransform: {fileID: 1576954436}
 --- !u!4 &429029632

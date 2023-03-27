@@ -43,11 +43,13 @@ public class EmployeeHandler : MonoBehaviour
         StartCoroutine(ProcessEmployees());
     }
 
-    public void setAccepted()
+    public void setAccepted(EmployeeOption option)
     {
+        Employee tmp = employeeGenerator.employees.Find(e => e.id == option.id);
+        Debug.Log("Selected: " + tmp.firstName + " " + tmp.lastName + " - Actual:" + currentEmployee.firstName + " " + currentEmployee.lastName);
         accepted = true;
     }
-    
+
     private IEnumerator ProcessEmployees()
     {
         while (employeesToProcess.Count > 0)
@@ -62,6 +64,24 @@ public class EmployeeHandler : MonoBehaviour
     private IEnumerator WaitForUserProcessing()
     {
         // https://answers.unity.com/questions/586609/waiting-for-input-via-coroutine.html
+        ShowCloseUpEmployee();
+        acceptRejectAnim.SetBool("ShowButtons", true);
+        while (accepted == false)
+        {
+            yield return null;
+        }
+        accepted = false;
+        acceptRejectAnim.SetBool("ShowButtons", false);
+        HideCloseUpEmployee();
+    }
+
+    private void HideCloseUpEmployee()
+    {
+        closeUpAnim.SetTrigger("accept");
+    }
+
+    private void ShowCloseUpEmployee()
+    {
         eyes.sprite = currentEmployee.eyesSprite;
         hair.sprite = currentEmployee.hairSprite;
         hair.color = currentEmployee.hairColor;
@@ -79,14 +99,6 @@ public class EmployeeHandler : MonoBehaviour
         }
         mouth.sprite = currentEmployee.mouthSprite;
         closeUpEmployee.SetActive(true);
-        acceptRejectAnim.SetBool("ShowButtons", true);
-        while (accepted == false)
-        {
-            yield return new WaitForSeconds(4);
-        }
-        accepted = false;
-        acceptRejectAnim.SetBool("ShowButtons", false);
-        closeUpAnim.SetTrigger("accept");
     }
 
     private IEnumerator PlayFaceAnimation()

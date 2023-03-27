@@ -34,6 +34,7 @@ public class EmployeeOption : MonoBehaviour
 
     public void SetTicked(bool ticked)
     {
+        if (locked) return;
         this.ticked = ticked;
         checkboxImage.sprite = ticked ? checkBoxEnabled : checkBoxDisabled;
     }
@@ -41,6 +42,7 @@ public class EmployeeOption : MonoBehaviour
     public void OnClick()
     {
         if (locked) return;
+
         foreach (EmployeeOption option in otherOptions)
         {
             if (option.id != id)
@@ -48,7 +50,14 @@ public class EmployeeOption : MonoBehaviour
                 option.SetTicked(false);
             }
         }
-        SetTicked(true);
+        if (this.ticked)
+        {
+            SetTicked(false);
+        }
+        else
+        {
+            SetTicked(true);
+        }
         Debug.Log(ticked);
     }
 
