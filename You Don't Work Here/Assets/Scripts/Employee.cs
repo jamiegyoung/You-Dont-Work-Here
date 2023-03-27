@@ -40,7 +40,7 @@ public struct SpeechType
 [System.Serializable]
 public class Employee
 {
-    public int id;
+    public long id;
     public string firstName;
     public string lastName;
     public SpeechType speechType;
