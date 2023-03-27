@@ -10,14 +10,15 @@ public class DayTracker : MonoBehaviour
 
     public DayTime Time { get; set; }
     public int FinalDay = 10;
-
+    public static DayTracker instance;
     void Start()
     {
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
     public void IncrementDay()
     {
-        if(currentDay > FinalDay)
+        if (currentDay > FinalDay)
         {
 
             throw new NotImplementedException();
@@ -29,10 +30,10 @@ public class DayTracker : MonoBehaviour
 
     }
 
-   public void IncrementTime()
+    public void IncrementTime()
     {
 
-        if(Time == DayTime.Night)
+        if (Time == DayTime.Night)
         {
             IncrementDay();
         }
@@ -42,7 +43,7 @@ public class DayTracker : MonoBehaviour
         }
 
     }
-    
+
 
 }
 public enum DayTime
