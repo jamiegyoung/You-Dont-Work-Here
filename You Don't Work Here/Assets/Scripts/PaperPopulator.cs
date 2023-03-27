@@ -38,9 +38,18 @@ public class PaperPopulator : MonoBehaviour
         EmployeeOption validOption = CheckAcceptValidity();
         Debug.Log(validOption.id);
         if (validOption == null) return;
-        eh.setAccepted(validOption);
+        eh.SetAccepted(validOption);
         validOption.SetTicked(true); // just incase
         validOption.locked = true;
+    }
+
+    public void OnReject()
+    {
+        foreach (EmployeeOption option in options)
+        {
+            option.SetTicked(false);
+        }
+        eh.SetRejected();
     }
 
     private EmployeeOption CheckAcceptValidity()

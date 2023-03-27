@@ -12,7 +12,7 @@ public class EmployeeHandler : MonoBehaviour
     public GameObject acceptEmployee;
     public GameObject rejectEmployee;
     public GameObject closeUpEmployee;
-    public Animator acceptRejectAnim;
+    public Animator acceptRejectButtonsAnim;
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
@@ -26,10 +26,13 @@ public class EmployeeHandler : MonoBehaviour
     private List<Employee> employeesToProcess;
     private Employee currentEmployee;
     private Animator closeUpAnim;
+    public int mistakes;
     private bool accepted = false;
+    private bool rejected = false;
 
     void Start()
     {
+        mistakes = 0;
         employeeGenerator = EmployeeGenerator.instance;
         walkInEmployeePlayable = walkInEmployee.GetComponent<PlayableDirector>();
         acceptEmployeePlayable = acceptEmployee.GetComponent<PlayableDirector>();
@@ -43,11 +46,22 @@ public class EmployeeHandler : MonoBehaviour
         StartCoroutine(ProcessEmployees());
     }
 
-    public void setAccepted(EmployeeOption option)
+    public void SetAccepted(EmployeeOption option)
     {
-        Employee tmp = employeeGenerator.employees.Find(e => e.id == option.id);
-        Debug.Log("Selected: " + tmp.firstName + " " + tmp.lastName + " - Actual:" + currentEmployee.firstName + " " + currentEmployee.lastName);
+        if (option.id != currentEmployee.id)
+        {
+            mistakes++;
+        }
         accepted = true;
+    }
+
+    public void SetRejected()
+    {
+        if (employeeGenerator.employees.Find(e => e.id == currentEmployee.id) != null)
+        {
+            mistakes++;
+        }
+        rejected = true;
     }
 
     private IEnumerator ProcessEmployees()
@@ -65,19 +79,28 @@ public class EmployeeHandler : MonoBehaviour
     {
         // https://answers.unity.com/questions/586609/waiting-for-input-via-coroutine.html
         ShowCloseUpEmployee();
-        acceptRejectAnim.SetBool("ShowButtons", true);
-        while (accepted == false)
+        acceptRejectButtonsAnim.SetBool("ShowButtons", true);
+        accepted = false;
+        rejected = false;
+        while (accepted == false && rejected == false)
         {
             yield return null;
         }
-        accepted = false;
-        acceptRejectAnim.SetBool("ShowButtons", false);
-        HideCloseUpEmployee();
+        acceptRejectButtonsAnim.SetBool("ShowButtons", false);
+        HideCloseUpEmployee(accepted);
     }
 
-    private void HideCloseUpEmployee()
+
+    private void HideCloseUpEmployee(bool accepted)
     {
+        if (accepted)
+        {
+
         closeUpAnim.SetTrigger("accept");
+        }else
+        {
+            closeUpAnim.SetTrigger("reject");
+        }
     }
 
     private void ShowCloseUpEmployee()
@@ -106,7 +129,7 @@ public class EmployeeHandler : MonoBehaviour
         yield return StartCoroutine(WaitForUserProcessing());
         acceptEmployee.SetActive(true);
         walkInEmployee.SetActive(false);
-        yield return StartCoroutine(PlayTimelineRoutine(acceptEmployee, acceptEmployeePlayable));
+        yield return StartCoroutine(PlayTimelineRoutine(accepted ? acceptEmployee : rejectEmployee, accepted ? acceptEmployeePlayable : rejectEmployeePlayable));
         closeUpEmployee.SetActive(false);
     }
 
