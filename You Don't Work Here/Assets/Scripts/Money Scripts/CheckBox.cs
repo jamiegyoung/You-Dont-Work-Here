@@ -10,30 +10,20 @@ public class CheckBox : MonoBehaviour
     [SerializeField] private bool payButton;
 
     public TextMeshProUGUI text;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     public void OnClick()
     {
         if (clicked)
         {
             clicked = false;
-            if (!payButton) 
+            if (!payButton) //If checkbox uncheck
                 text.text = "";
         }
         else
         {
             clicked = true;
-            if (!payButton)
+            if (!payButton) //If checkbox check
                 text.text = "X";
         }
     }
