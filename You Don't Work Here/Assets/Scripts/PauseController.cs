@@ -14,6 +14,7 @@ public class PauseController : MonoBehaviour
     private void Start()
     {
         inputHandler = new InputHandler(playerInput);
+        pauseUI.SetActive(false);
     }
     void Update()
     {
@@ -38,4 +39,5 @@ public class PauseController : MonoBehaviour
             pauseUI.SetActive(true);
         }
     }
+
 }
