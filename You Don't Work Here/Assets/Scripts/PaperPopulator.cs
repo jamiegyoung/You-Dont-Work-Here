@@ -12,12 +12,12 @@ public class PaperPopulator : MonoBehaviour
     void Start()
     {
         eg = EmployeeGenerator.instance;
-        paperContainerRectTransform.sizeDelta = new Vector2(paperContainerRectTransform.sizeDelta.x, 28 * eg.employees.Count + 100);
-        paperPanelRectTransform.sizeDelta = new Vector2(paperPanelRectTransform.sizeDelta.x, 28 * eg.employees.Count + 25);
+        paperContainerRectTransform.sizeDelta = new Vector2(paperContainerRectTransform.sizeDelta.x, 25 * eg.employees.Count + 100);
+        paperPanelRectTransform.sizeDelta = new Vector2(paperPanelRectTransform.sizeDelta.x, 25 * eg.employees.Count + 25);
         List<Employee> employeesToProcess = new(eg.employees);
         while (employeesToProcess.Count > 0)
         {
-            int randomIndex = UnityEngine.Random.Range(0, employeesToProcess.Count);
+            int randomIndex = Random.Range(0, employeesToProcess.Count);
             Employee employee = employeesToProcess[randomIndex];
             GameObject newEmployeeOption = Instantiate(employeeOptionTemplate, paperPanelTransform);
             EmployeeOption employeeOption = newEmployeeOption.GetComponent<EmployeeOption>();

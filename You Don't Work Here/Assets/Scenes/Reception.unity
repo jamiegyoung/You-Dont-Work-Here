@@ -836,7 +836,7 @@ MonoBehaviour:
       - This is well out of order!
       - After all I do for you!
   employees: []
-  initialEmployees: 4
+  initialEmployees: 6
   employeeAdditionAmount: 1
   newEmployees: []
   firedEmployees: []
