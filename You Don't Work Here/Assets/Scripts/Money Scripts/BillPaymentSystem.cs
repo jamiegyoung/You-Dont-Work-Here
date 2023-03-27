@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Money Objects/Payment System")]
 public class BillPaymentSystem : ScriptableObject
 {
     [SerializeField]
     private PlayerMoney player;
 
-    //Initialise costings
-    [Range(1f, 100f)]
+    
     private float electricityCost = 20f;
 
-    [Range(1f, 100f)]
-    private float gasCost = 25f;
+    
+    private float gasCost = 20f;
 
-    [Range(1f, 10f)]
-    private float increaseCost = 1.25f;
+    
+    private float increaseCost = 1.2f;
 
-    [Range(1f, 100f)]
+    
     private float foodCost = 20f;
 
-    [Range(1f, 500f)]
+    
     private float boilerFixCost = 100f;
 
 
@@ -41,7 +41,7 @@ public class BillPaymentSystem : ScriptableObject
     /// <param name="day">An integer representing the current day.</param>
     public void IncreaseBills(int day)
     {
-        electricityBill += CalculateBill(electricityBill, day);
+        electricityBill += CalculateBill(electricityCost, day);
         gasBill += CalculateBill(gasCost, day);
         foodBill += foodCost;
     }
@@ -121,5 +121,19 @@ public class BillPaymentSystem : ScriptableObject
             return true;
         }
         return false;
+    }
+
+    public bool BoilerCheck()
+    {
+        return boilerBroken;
+    }
+
+
+    public void RestartGame()
+    {
+        gasBill = 0;
+        electricityBill = 0;
+        foodBill = 0;
+        boilerBroken = false;
     }
 }

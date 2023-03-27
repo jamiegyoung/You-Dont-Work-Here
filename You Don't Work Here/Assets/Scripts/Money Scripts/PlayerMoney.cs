@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu( menuName="Money Objects/Bank Account")]
 public class PlayerMoney : ScriptableObject
 {
     [SerializeField]
