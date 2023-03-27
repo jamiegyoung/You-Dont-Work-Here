@@ -6,11 +6,14 @@ public class PaperPopulator : MonoBehaviour
 {
     public GameObject employeeOptionTemplate;
     public RectTransform paperContainerRectTransform;
+    public RectTransform paperPanelRectTransform;
     public Transform paperPanelTransform;
     private EmployeeGenerator eg;
     void Start()
     {
         eg = EmployeeGenerator.instance;
+        paperContainerRectTransform.sizeDelta = new Vector2(paperContainerRectTransform.sizeDelta.x, 28 * eg.employees.Count + 100);
+        paperPanelRectTransform.sizeDelta = new Vector2(paperPanelRectTransform.sizeDelta.x, 28 * eg.employees.Count + 25);
         List<Employee> employeesToProcess = new(eg.employees);
         while (employeesToProcess.Count > 0)
         {
