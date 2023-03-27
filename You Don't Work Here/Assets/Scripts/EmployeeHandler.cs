@@ -26,6 +26,7 @@ public class EmployeeHandler : MonoBehaviour
     private List<Employee> employeesToProcess;
     private Employee currentEmployee;
     private Animator closeUpAnim;
+    private bool accepted = false;
 
     void Start()
     {
@@ -42,6 +43,11 @@ public class EmployeeHandler : MonoBehaviour
         StartCoroutine(ProcessEmployees());
     }
 
+    public void setAccepted()
+    {
+        accepted = true;
+    }
+    
     private IEnumerator ProcessEmployees()
     {
         while (employeesToProcess.Count > 0)
@@ -51,7 +57,6 @@ public class EmployeeHandler : MonoBehaviour
             yield return PlayTimelineRoutine(walkInEmployee, walkInEmployeePlayable, PlayFaceAnimation(), 1);
             employeesToProcess.Remove(currentEmployee);
         }
-
     }
 
     private IEnumerator WaitForUserProcessing()
@@ -75,7 +80,11 @@ public class EmployeeHandler : MonoBehaviour
         mouth.sprite = currentEmployee.mouthSprite;
         closeUpEmployee.SetActive(true);
         acceptRejectAnim.SetBool("ShowButtons", true);
-        yield return new WaitForSeconds(4);
+        while (accepted == false)
+        {
+            yield return new WaitForSeconds(4);
+        }
+        accepted = false;
         acceptRejectAnim.SetBool("ShowButtons", false);
         closeUpAnim.SetTrigger("accept");
     }
