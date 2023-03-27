@@ -11,6 +11,7 @@ public class PaperPopulator : MonoBehaviour
     private EmployeeGenerator eg;
     void Start()
     {
+        List<EmployeeOption> options = new List<EmployeeOption>();
         eg = EmployeeGenerator.instance;
         paperContainerRectTransform.sizeDelta = new Vector2(paperContainerRectTransform.sizeDelta.x, 25 * eg.employees.Count + 100);
         paperPanelRectTransform.sizeDelta = new Vector2(paperPanelRectTransform.sizeDelta.x, 25 * eg.employees.Count + 25);
@@ -25,6 +26,8 @@ public class PaperPopulator : MonoBehaviour
             employeeOption.id = employee.id;
             employeesToProcess.RemoveAt(randomIndex);
             employeeOption.scrollRectContent = paperContainerRectTransform;
+            options.Add(employeeOption);
+            employeeOption.otherOptions = options;
         }
     }
 }

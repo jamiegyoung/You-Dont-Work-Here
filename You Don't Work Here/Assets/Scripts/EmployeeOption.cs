@@ -12,6 +12,7 @@ public class EmployeeOption : MonoBehaviour
     public Sprite checkBoxEnabled;
     public Sprite checkBoxDisabled;
     public RectTransform scrollRectContent;
+    public List<EmployeeOption> otherOptions;
     public long id;
     private bool locked;
 
@@ -31,11 +32,23 @@ public class EmployeeOption : MonoBehaviour
         }
     }
 
+    public void SetTicked(bool ticked)
+    {
+        this.ticked = ticked;
+        checkboxImage.sprite = ticked ? checkBoxEnabled : checkBoxDisabled;
+    }
+
     public void OnClick()
     {
         if (locked) return;
-        ticked = !ticked;
-        checkboxImage.sprite = ticked ? checkBoxEnabled : checkBoxDisabled;
+        foreach (EmployeeOption option in otherOptions)
+        {
+            if (option.id != id)
+            {
+                option.SetTicked(false);
+            }
+        }
+        SetTicked(true);
         Debug.Log(ticked);
     }
 
