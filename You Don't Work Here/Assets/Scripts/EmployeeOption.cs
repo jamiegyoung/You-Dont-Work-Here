@@ -14,7 +14,7 @@ public class EmployeeOption : MonoBehaviour
     public RectTransform scrollRectContent;
     public List<EmployeeOption> otherOptions;
     public long id;
-    private bool locked;
+    public bool locked;
 
     public void Start()
     {

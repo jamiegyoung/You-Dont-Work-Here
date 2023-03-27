@@ -9,9 +9,10 @@ public class PaperPopulator : MonoBehaviour
     public RectTransform paperPanelRectTransform;
     public Transform paperPanelTransform;
     private EmployeeGenerator eg;
+    private List<EmployeeOption> options;
     void Start()
     {
-        List<EmployeeOption> options = new List<EmployeeOption>();
+        options = new List<EmployeeOption>();
         eg = EmployeeGenerator.instance;
         paperContainerRectTransform.sizeDelta = new Vector2(paperContainerRectTransform.sizeDelta.x, 25 * eg.employees.Count + 100);
         paperPanelRectTransform.sizeDelta = new Vector2(paperPanelRectTransform.sizeDelta.x, 25 * eg.employees.Count + 25);
@@ -30,4 +31,35 @@ public class PaperPopulator : MonoBehaviour
             employeeOption.otherOptions = options;
         }
     }
+
+    public void OnAccept()
+    {
+        EmployeeOption validOption = CheckAcceptValidity();
+        if (validOption == null) return;
+        validOption.SetTicked(true); // just incase
+        validOption.locked = true;
+    }
+
+    private EmployeeOption CheckAcceptValidity()
+    {
+        bool valid = false;
+        EmployeeOption selectedOption = null;
+        foreach (EmployeeOption option in options)
+        {
+            if (option.ticked == true && option.locked == false)
+            {
+                // if a non locked option is picked and another hasn't been picked before it's valid
+                if (valid == false)
+                {
+                    selectedOption = option;
+                }
+                else
+                {
+                    selectedOption = null;
+                }
+            }
+        }
+        return selectedOption;
+    }
 }
+

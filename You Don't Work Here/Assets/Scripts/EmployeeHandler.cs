@@ -12,6 +12,7 @@ public class EmployeeHandler : MonoBehaviour
     public GameObject acceptEmployee;
     public GameObject rejectEmployee;
     public GameObject closeUpEmployee;
+    public Animator acceptRejectAnim;
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
@@ -73,7 +74,9 @@ public class EmployeeHandler : MonoBehaviour
         }
         mouth.sprite = currentEmployee.mouthSprite;
         closeUpEmployee.SetActive(true);
+        acceptRejectAnim.SetBool("ShowButtons", true);
         yield return new WaitForSeconds(4);
+        acceptRejectAnim.SetBool("ShowButtons", false);
         closeUpAnim.SetTrigger("accept");
     }
 
