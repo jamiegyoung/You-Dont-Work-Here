@@ -80,6 +80,7 @@ public class DisplayBills : MonoBehaviour
     /// </summary>
     public void DisplayBill()
     {
+        bps.PayEmployee();
         display = true;
         bps.IncreaseBills(DayTracker.instance.currentDay);
         UpdateBills();
