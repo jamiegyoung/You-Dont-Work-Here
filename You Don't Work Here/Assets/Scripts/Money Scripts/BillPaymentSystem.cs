@@ -8,18 +8,19 @@ public class BillPaymentSystem : ScriptableObject
 {
     [SerializeField]
     private PlayerMoney player;
+    [SerializeField]
+    private MistakesTracker mistakes;
+
+    private float electricityCost = 5f;
 
     
-    private float electricityCost = 20f;
-
-    
-    private float gasCost = 20f;
+    private float gasCost = 5f;
 
     
     private float increaseCost = 1.2f;
 
     
-    private float foodCost = 20f;
+    private float foodCost = 5f;
 
     
     private float boilerFixCost = 100f;

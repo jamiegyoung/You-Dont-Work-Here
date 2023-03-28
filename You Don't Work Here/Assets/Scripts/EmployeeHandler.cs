@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class EmployeeHandler : MonoBehaviour
 {
+
+    [SerializeField] private MistakesTracker mistakes;
     public GameObject walkInEmployee;
     public GameObject acceptEmployee;
     public GameObject rejectEmployee;
@@ -26,13 +28,13 @@ public class EmployeeHandler : MonoBehaviour
     private List<Employee> employeesToProcess;
     private Employee currentEmployee;
     private Animator closeUpAnim;
-    public int mistakes;
+    
     private bool accepted = false;
     private bool rejected = false;
 
     void Start()
     {
-        mistakes = 0;
+        mistakes.ResetMistakes();
         employeeGenerator = EmployeeGenerator.instance;
         walkInEmployeePlayable = walkInEmployee.GetComponent<PlayableDirector>();
         acceptEmployeePlayable = acceptEmployee.GetComponent<PlayableDirector>();
@@ -50,7 +52,7 @@ public class EmployeeHandler : MonoBehaviour
     {
         if (option.id != currentEmployee.id)
         {
-            mistakes++;
+            mistakes.incrementMistakes();
         }
         accepted = true;
     }
@@ -59,7 +61,7 @@ public class EmployeeHandler : MonoBehaviour
     {
         if (employeeGenerator.employees.Find(e => e.id == currentEmployee.id) != null)
         {
-            mistakes++;
+            mistakes.incrementMistakes();
         }
         rejected = true;
     }
