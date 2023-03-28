@@ -12,7 +12,7 @@ public class DisplayBills : MonoBehaviour
     private PlayerMoney player; //Players bank account
     [SerializeField] private GameObject[] checkBoxObjects;  //Array of the checkboxes on the pay bill screen
     [SerializeField] private GameObject payButton;  // Gameobject for the oay button
-    
+    [SerializeField] private SceneLoader sceneLoader;
     private bool display = false;
 
     // Current bill values
@@ -71,6 +71,7 @@ public class DisplayBills : MonoBehaviour
             {
                 bps.PayBills(new Bills(payGas, payFood, payElectricity));
                 UpdateBills();
+                sceneLoader.LoadLevel(SceneLoader.Level.House);
             }
         }
     }

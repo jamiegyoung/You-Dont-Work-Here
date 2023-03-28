@@ -15,6 +15,7 @@ public class EmployeeHandler : MonoBehaviour
     public GameObject rejectEmployee;
     public GameObject closeUpEmployee;
     public Animator acceptRejectButtonsAnim;
+    public SceneLoader sceneLoader;
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
@@ -75,11 +76,12 @@ public class EmployeeHandler : MonoBehaviour
             yield return PlayTimelineRoutine(walkInEmployee, walkInEmployeePlayable, PlayFaceAnimation(), 1);
             employeesToProcess.Remove(currentEmployee);
         }
+        // Finished processing employees
+        sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);   
     }
 
     private IEnumerator WaitForUserProcessing()
     {
-        // https://answers.unity.com/questions/586609/waiting-for-input-via-coroutine.html
         ShowCloseUpEmployee();
         acceptRejectButtonsAnim.SetBool("ShowButtons", true);
         accepted = false;
@@ -97,9 +99,9 @@ public class EmployeeHandler : MonoBehaviour
     {
         if (accepted)
         {
-
-        closeUpAnim.SetTrigger("accept");
-        }else
+            closeUpAnim.SetTrigger("accept");
+        }
+        else
         {
             closeUpAnim.SetTrigger("reject");
         }
