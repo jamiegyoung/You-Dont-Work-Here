@@ -771,7 +771,7 @@ MonoBehaviour:
       - I cant be bothered with you
       - Thats unreal!
   employees: []
-  initialEmployees: 4
+  initialEmployees: 2
   employeeAdditionAmount: 1
   newEmployees: []
   firedEmployees: []
