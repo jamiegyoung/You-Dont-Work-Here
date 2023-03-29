@@ -1158,7 +1158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -359.99997, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &548048172
@@ -2033,7 +2033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -359.99997, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1230084185
@@ -2869,6 +2869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74228b0332a65b94caa961c32a67cdbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mistakes: {fileID: 11400000, guid: 6de0f7adef2a09c4d87049173078ae50, type: 2}
   walkInEmployee: {fileID: 2080855292}
   acceptEmployee: {fileID: 548048170}
   rejectEmployee: {fileID: 1230084183}
@@ -2880,7 +2881,6 @@ MonoBehaviour:
   hair: {fileID: 276041619}
   mouth: {fileID: 1464908338}
   glasses: {fileID: 1355390422}
-  mistakes: 0
 --- !u!4 &1828363556
 Transform:
   m_ObjectHideFlags: 0
@@ -3009,7 +3009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -359.99997, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!320 &2080855294

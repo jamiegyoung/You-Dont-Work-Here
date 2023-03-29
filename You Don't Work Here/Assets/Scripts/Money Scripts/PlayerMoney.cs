@@ -9,6 +9,11 @@ public class PlayerMoney : ScriptableObject
     private float balance;
 
 
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
+
     /// <summary>
     /// Method <c>GetBalance</c> returns the players current bank balance.
     /// </summary>
@@ -23,7 +28,9 @@ public class PlayerMoney : ScriptableObject
     /// <param name="value">Value to increment bank balance by.</param>
     public float Deposit(float value)
     {
+        Debug.Log("Depositing:" + value +" Original balance:"+balance);
         balance += value;
+        Debug.Log("Balance after deposit:" + balance);
         return balance;
     }
 
