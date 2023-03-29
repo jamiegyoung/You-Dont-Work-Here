@@ -71,4 +71,50 @@ public class Employee
     {
         return Equals(this, other);
     }
+
+    public string GetIntroductionSpeech()
+    {
+        return GetRandomText(speechType.introductionText);
+    }
+
+    public string GetTakingTimeSpeech()
+    {
+        return GetRandomText(speechType.takingTimeText);
+    }
+
+    public string GetAcceptionSpeech()
+    {
+        return GetRandomText(speechType.acceptionText);
+    }
+
+    public string GetRejectionSpeech()
+    {
+        return GetRandomText(speechType.rejectionText);
+    }
+
+    private static string GetRandomText(string[] text)
+    {
+        int randomIndex = Random.Range(0, text.Length);
+        return text[randomIndex];
+    }
+
+    public Vector4 GetColor()
+    {
+        int firstNameASCII = 0;
+        int lastNameASCII = 0;
+        foreach(char c in firstName)
+        {
+            firstNameASCII += (int)c;
+        }
+        foreach (char c in lastName)
+        {
+            lastNameASCII += (int)c;
+        }
+        firstNameASCII = firstNameASCII % 256;
+        lastNameASCII = lastNameASCII % 256;
+        int blueVlaue = (firstNameASCII + lastNameASCII) % 256;
+        Debug.Log(firstNameASCII + "," + lastNameASCII + "," + blueVlaue);
+        return new Vector4 (firstNameASCII, lastNameASCII, blueVlaue, 255);
+    }
+
 }

@@ -10,6 +10,7 @@ public class EmployeeHandler : MonoBehaviour
 {
 
     [SerializeField] private MistakesTracker mistakes;
+    [SerializeField] private ChatBox chatBox;
     public GameObject walkInEmployee;
     public GameObject acceptEmployee;
     public GameObject rejectEmployee;
@@ -65,6 +66,7 @@ public class EmployeeHandler : MonoBehaviour
         {
             successAudio.PlayDelayed(2);
         }
+        chatBox.PrintText(currentEmployee.GetAcceptionSpeech(), currentEmployee.GetColor());
     }
 
     public void SetRejected()
@@ -81,6 +83,7 @@ public class EmployeeHandler : MonoBehaviour
         {
             successAudio.PlayDelayed(2);
         }
+        chatBox.PrintText(currentEmployee.GetRejectionSpeech(), currentEmployee.GetColor());
     }
 
     private IEnumerator ProcessEmployees()
@@ -91,6 +94,7 @@ public class EmployeeHandler : MonoBehaviour
             currentEmployee = employeesToProcess[UnityEngine.Random.Range(0, employeesToProcess.Count)];
             yield return PlayTimelineRoutine(walkInEmployee, walkInEmployeePlayable, PlayFaceAnimation(), 1);
             employeesToProcess.Remove(currentEmployee);
+            chatBox.ClearChatBox();
         }
         // Finished processing employees
         sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);
@@ -146,11 +150,13 @@ public class EmployeeHandler : MonoBehaviour
 
     private IEnumerator PlayFaceAnimation()
     {
+        chatBox.PrintText(currentEmployee.GetIntroductionSpeech(), currentEmployee.GetColor());
         yield return StartCoroutine(WaitForUserProcessing());
         acceptEmployee.SetActive(true);
         walkInEmployee.SetActive(false);
         yield return StartCoroutine(PlayTimelineRoutine(accepted ? acceptEmployee : rejectEmployee, accepted ? acceptEmployeePlayable : rejectEmployeePlayable));
         closeUpEmployee.SetActive(false);
+        
     }
 
     private IEnumerator PlayTimelineRoutine(GameObject obj, PlayableDirector playable, IEnumerator onComplete, float timelineEndingOffset)
