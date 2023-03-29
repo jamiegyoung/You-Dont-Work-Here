@@ -16,10 +16,12 @@ public class EmployeeHandler : MonoBehaviour
     public GameObject closeUpEmployee;
     public Animator acceptRejectButtonsAnim;
     public SceneLoader sceneLoader;
+    public AudioSource successAudio;
+    public AudioSource failAudio;
+    public FailPanel failPanel;
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
-    //private PlayableDirector pd;
     public Image face;
     public Image eyes;
     public Image hair;
@@ -51,20 +53,34 @@ public class EmployeeHandler : MonoBehaviour
 
     public void SetAccepted(EmployeeOption option)
     {
+        if (accepted || rejected) { return; }
+        accepted = true;
         if (option.id != currentEmployee.id)
         {
             mistakes.incrementMistakes();
+            failPanel.PlayAnim(mistakes.mistakes);
+            failAudio.PlayDelayed(2);
         }
-        accepted = true;
+        else
+        {
+            successAudio.PlayDelayed(2);
+        }
     }
 
     public void SetRejected()
     {
+        if (accepted || rejected) { return; }
+        rejected = true;
         if (employeeGenerator.employees.Find(e => e.id == currentEmployee.id) != null)
         {
             mistakes.incrementMistakes();
+            failAudio.PlayDelayed(2);
+            failPanel.PlayAnim(mistakes.mistakes);
         }
-        rejected = true;
+        else
+        {
+            successAudio.PlayDelayed(2);
+        }
     }
 
     private IEnumerator ProcessEmployees()
@@ -77,7 +93,7 @@ public class EmployeeHandler : MonoBehaviour
             employeesToProcess.Remove(currentEmployee);
         }
         // Finished processing employees
-        sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);   
+        sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);
     }
 
     private IEnumerator WaitForUserProcessing()
