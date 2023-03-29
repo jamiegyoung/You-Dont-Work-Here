@@ -100,21 +100,33 @@ public class Employee
 
     public Vector4 GetColor()
     {
-        int firstNameASCII = 0;
-        int lastNameASCII = 0;
-        foreach(char c in firstName)
+       
+        int ascii = 0;
+        foreach(char c in firstName + lastName)
         {
-            firstNameASCII += (int)c;
+            ascii += (int)c;
         }
-        foreach (char c in lastName)
+        float red = ((float)ascii % 255) / 255;
+        float green = ((float)ascii % 255) / 255;
+        float blue = ((float)ascii % 255) / 255;
+
+        switch (ascii % 3 )
         {
-            lastNameASCII += (int)c;
+            case 0:
+                green /= 2;
+                blue /= 2;
+                break;
+            case 1:
+                red /= 2;
+                blue /= 2;
+                break;
+            case 2:
+                red /= 2;
+                green /= 2;
+                break;
         }
-        firstNameASCII = firstNameASCII % 256;
-        lastNameASCII = lastNameASCII % 256;
-        int blueVlaue = (firstNameASCII + lastNameASCII) % 256;
-        Debug.Log(firstNameASCII + "," + lastNameASCII + "," + blueVlaue);
-        return new Vector4 (firstNameASCII, lastNameASCII, blueVlaue, 255);
+       
+        return new Vector4 (red, green, blue, 255);
     }
 
 }
