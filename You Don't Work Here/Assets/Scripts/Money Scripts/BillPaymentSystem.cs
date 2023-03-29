@@ -8,18 +8,19 @@ public class BillPaymentSystem : ScriptableObject
 {
     [SerializeField]
     private PlayerMoney player;
+    [SerializeField]
+    private MistakesTracker mistakes;
+
+    private float electricityCost = 5f;
 
     
-    private float electricityCost = 20f;
-
-    
-    private float gasCost = 20f;
+    private float gasCost = 5f;
 
     
     private float increaseCost = 1.2f;
 
     
-    private float foodCost = 20f;
+    private float foodCost = 5f;
 
     
     private float boilerFixCost = 100f;
@@ -33,6 +34,10 @@ public class BillPaymentSystem : ScriptableObject
     //Ininitalise boiler state
     private bool boilerBroken = false;
 
+    private void OnEnable()
+    {
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
+    }
 
 
     /// <summary>
@@ -135,5 +140,26 @@ public class BillPaymentSystem : ScriptableObject
         electricityBill = 0;
         foodBill = 0;
         boilerBroken = false;
+    }
+
+    public void PayEmployee()
+    {
+        float mistakeCount = mistakes.mistakes-2;
+        if(mistakeCount < 0)
+        {
+            mistakeCount = 0;
+        }
+        
+        float payValue = 80f - mistakeCount * 5;
+        
+        if (payValue < 0)
+        {
+            player.Withdraw(-payValue);
+        }
+        else
+        {
+            Debug.Log("Deposit:" + payValue);
+            player.Deposit(payValue);
+        }
     }
 }

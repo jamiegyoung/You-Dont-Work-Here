@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48fe93cdc0a1b2e4a817bf4786501921, type: 3}
-  m_Name: Bill Payment System
+  m_Script: {fileID: 11500000, guid: 7fb07f1103935cd4db2d8ffffad72fc4, type: 3}
+  m_Name: Mistake Tracker
   m_EditorClassIdentifier: 
-  player: {fileID: 11400000, guid: 86fd0b7917e4b9a49ac17292c6ea47cc, type: 2}
-  mistakes: {fileID: 11400000, guid: 6de0f7adef2a09c4d87049173078ae50, type: 2}

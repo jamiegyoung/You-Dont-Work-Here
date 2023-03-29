@@ -3,7 +3,19 @@ guid: 74228b0332a65b94caa961c32a67cdbf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mistakes: {fileID: 11400000, guid: 6de0f7adef2a09c4d87049173078ae50, type: 2}
+  - walkInEmployee: {instanceID: 0}
+  - acceptEmployee: {instanceID: 0}
+  - rejectEmployee: {instanceID: 0}
+  - closeUpEmployee: {instanceID: 0}
+  - acceptRejectButtonsAnim: {instanceID: 0}
+  - sceneLoader: {instanceID: 0}
+  - face: {instanceID: 0}
+  - eyes: {instanceID: 0}
+  - hair: {instanceID: 0}
+  - mouth: {instanceID: 0}
+  - glasses: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
