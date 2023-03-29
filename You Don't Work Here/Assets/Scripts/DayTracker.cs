@@ -5,20 +5,18 @@ using UnityEngine;
 
 public class DayTracker : MonoBehaviour
 {
-
     public int currentDay = 0; // Default for now. Will be set later.
-
-    public DayTime Time { get; set; }
-    public int FinalDay = 10;
+    public int finalDay = 10;
     public static DayTracker instance;
     void Start()
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
     public void IncrementDay()
     {
-        if (currentDay > FinalDay)
+        if (currentDay > finalDay)
         {
 
             throw new NotImplementedException();
@@ -26,28 +24,5 @@ public class DayTracker : MonoBehaviour
         }
 
         currentDay++;
-        Time = DayTime.Day;
-
     }
-
-    public void IncrementTime()
-    {
-
-        if (Time == DayTime.Night)
-        {
-            IncrementDay();
-        }
-        else
-        {
-            Time = DayTime.Night;
-        }
-
-    }
-
-
-}
-public enum DayTime
-{
-    Day,
-    Night
 }

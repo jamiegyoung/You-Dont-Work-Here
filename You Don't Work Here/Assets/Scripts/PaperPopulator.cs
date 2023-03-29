@@ -36,8 +36,8 @@ public class PaperPopulator : MonoBehaviour
     public void OnAccept()
     {
         EmployeeOption validOption = CheckAcceptValidity();
-        Debug.Log(validOption.id);
         if (validOption == null) return;
+        Debug.Log(validOption.id);
         eh.SetAccepted(validOption);
         validOption.SetTicked(true); // just incase
         validOption.locked = true;
