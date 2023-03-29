@@ -514,7 +514,6 @@ GameObject:
   - component: {fileID: 756268460}
   - component: {fileID: 756268459}
   - component: {fileID: 756268458}
-  - component: {fileID: 756268461}
   m_Layer: 5
   m_Name: Done Button
   m_TagString: Untagged
@@ -587,9 +586,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 756268461}
-        m_TargetAssemblyTypeName: CheckBox, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 2061254940}
+        m_TargetAssemblyTypeName: DisplayBills, Assembly-CSharp
+        m_MethodName: PayBill
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -637,20 +636,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756268456}
   m_CullTransparentMesh: 1
---- !u!114 &756268461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756268456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455deb7e5b0e36448b0a6e9326bdb70e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  payButton: 1
-  text: {fileID: 0}
 --- !u!1 &791580060
 GameObject:
   m_ObjectHideFlags: 0
