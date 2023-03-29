@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 public class EmployeeGenerator : MonoBehaviour
 {
-    private const int SIMILARITY_THRESHOLD = 2;
+    public const int SIMILARITY_THRESHOLD = 2;
     public FaceType[] faces;
     public Sprite[] eyeSprites;
     public Sprite[] mouthSprites;
@@ -41,7 +41,6 @@ public class EmployeeGenerator : MonoBehaviour
         List<Employee> newEmployees = new();
         while (employeesToGenerate > 0)
         {
-            // TODO: add similarity check later
             Employee newEmployee = GenerateRandomEmployee();
             bool remakeFlag = false;
             foreach (Employee e in employees)
@@ -91,7 +90,7 @@ public class EmployeeGenerator : MonoBehaviour
     /// Generates a random employee
     /// </summary>
     /// <returns>The randomly generated employee</returns>
-    private Employee GenerateRandomEmployee()
+    public Employee GenerateRandomEmployee()
     {
         // Could cause an overflow but there are never gonna be that many employees
         idCounter++;

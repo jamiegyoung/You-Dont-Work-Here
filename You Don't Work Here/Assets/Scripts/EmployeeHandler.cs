@@ -32,7 +32,7 @@ public class EmployeeHandler : MonoBehaviour
     private List<Employee> employeesToProcess;
     private Employee currentEmployee;
     private Animator closeUpAnim;
-    
+
     private bool accepted = false;
     private bool rejected = false;
 
@@ -46,10 +46,40 @@ public class EmployeeHandler : MonoBehaviour
         walkInEmployee.SetActive(true);
         acceptEmployee.SetActive(false);
         rejectEmployee.SetActive(false);
-        employeesToProcess = employeeGenerator.employees;
+        employeesToProcess = new List<Employee>(employeeGenerator.employees);
+        employeesToProcess.AddRange(GenerateRedHerringEmployees());
         closeUpAnim = closeUpEmployee.GetComponent<Animator>();
         closeUpEmployee.SetActive(false);
         StartCoroutine(ProcessEmployees());
+    }
+
+    private List<Employee> GenerateRedHerringEmployees()
+    {
+        DayTracker dayTracker = DayTracker.instance;
+        List<Employee> employees = new List<Employee>();
+        for (int i = 0; i < dayTracker.currentDay; i++)
+        {
+            Employee newEmployee = employeeGenerator.GenerateRandomEmployee();
+            bool remakeFlag = false;
+            // Check it's not similar to the combination of the current employees
+            // and the newly generated bait employees
+            List<Employee> combinedList = new List<Employee>(employeeGenerator.employees);
+            combinedList.AddRange(employees);
+            foreach (Employee e in employees)
+            {
+                int similarities = e.Equals(newEmployee);
+                //Debug.Log("Similarities on generated employee: " + similarities);
+                if (similarities > EmployeeGenerator.SIMILARITY_THRESHOLD)
+                {
+                    remakeFlag = true;
+                }
+            }
+            if (!remakeFlag)
+            {
+                employees.Add(newEmployee);
+            }
+        }
+        return employees;
     }
 
     public void SetAccepted(EmployeeOption option)

@@ -10,8 +10,15 @@ public class DayTracker : MonoBehaviour
     public static DayTracker instance;
     void Start()
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void IncrementDay()
@@ -22,7 +29,7 @@ public class DayTracker : MonoBehaviour
             throw new NotImplementedException();
             return;
         }
-
         currentDay++;
+        Debug.Log("Current day:" + currentDay);
     }
 }
