@@ -5,10 +5,7 @@ using UnityEngine;
 
 public class DayTracker : MonoBehaviour
 {
-
     public int currentDay = 0; // Default for now. Will be set later.
-
-    public DayTime Time { get; set; }
     public int FinalDay = 10;
     public static DayTracker instance;
     void Start()
@@ -26,28 +23,5 @@ public class DayTracker : MonoBehaviour
         }
 
         currentDay++;
-        Time = DayTime.Day;
-
     }
-
-    public void IncrementTime()
-    {
-
-        if (Time == DayTime.Night)
-        {
-            IncrementDay();
-        }
-        else
-        {
-            Time = DayTime.Night;
-        }
-
-    }
-
-
-}
-public enum DayTime
-{
-    Day,
-    Night
 }
