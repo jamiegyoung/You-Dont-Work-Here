@@ -28,8 +28,6 @@ public class EmployeeGenerator : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         int employeesToGenerate = initialEmployees - employees.Count;
         AddEmployees(employeesToGenerate);
-        AddEmployees(employeesToGenerate);
-        FireEmployees(2);
     }
 
     /// <summary>
