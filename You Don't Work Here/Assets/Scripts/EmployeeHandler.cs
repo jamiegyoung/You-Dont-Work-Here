@@ -16,6 +16,7 @@ public class EmployeeHandler : MonoBehaviour
     public SceneLoader sceneLoader;
     public AudioSource successAudio;
     public AudioSource failAudio;
+    public FailPanel failPanel;
     private PlayableDirector walkInEmployeePlayable;
     private PlayableDirector acceptEmployeePlayable;
     private PlayableDirector rejectEmployeePlayable;
@@ -50,30 +51,34 @@ public class EmployeeHandler : MonoBehaviour
 
     public void SetAccepted(EmployeeOption option)
     {
+        if (accepted || rejected) { return; }
+        accepted = true;
         if (option.id != currentEmployee.id)
         {
             mistakes++;
+            failPanel.PlayAnim(mistakes);
             failAudio.PlayDelayed(2);
         }
         else
         {
             successAudio.PlayDelayed(2);
         }
-        accepted = true;
     }
 
     public void SetRejected()
     {
+        if (accepted || rejected) { return; }
+        rejected = true;
         if (employeeGenerator.employees.Find(e => e.id == currentEmployee.id) != null)
         {
-            failAudio.PlayDelayed(2);
             mistakes++;
+            failAudio.PlayDelayed(2);
+            failPanel.PlayAnim(mistakes);
         }
         else
         {
             successAudio.PlayDelayed(2);
         }
-        rejected = true;
     }
 
     private IEnumerator ProcessEmployees()
