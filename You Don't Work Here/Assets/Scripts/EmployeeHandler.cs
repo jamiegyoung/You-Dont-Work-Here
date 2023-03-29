@@ -58,7 +58,7 @@ public class EmployeeHandler : MonoBehaviour
         if (option.id != currentEmployee.id)
         {
             mistakes.incrementMistakes();
-            failPanel.PlayAnim(mistakes);
+            failPanel.PlayAnim(mistakes.mistakes);
             failAudio.PlayDelayed(2);
         }
         else
@@ -75,7 +75,7 @@ public class EmployeeHandler : MonoBehaviour
         {
             mistakes.incrementMistakes();
             failAudio.PlayDelayed(2);
-            failPanel.PlayAnim(mistakes);
+            failPanel.PlayAnim(mistakes.mistakes);
         }
         else
         {
