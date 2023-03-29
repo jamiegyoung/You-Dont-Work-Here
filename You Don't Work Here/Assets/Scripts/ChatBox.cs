@@ -8,8 +8,7 @@ using UnityEngine.Playables;
 public class ChatBox : MonoBehaviour
 {
 
-    [SerializeField] private GameObject textBox;
-  
+    [SerializeField] private TextMeshProUGUI textMeshPro;
 
     public void PrintText(string text)
     {
@@ -24,21 +23,21 @@ public class ChatBox : MonoBehaviour
     private IEnumerator PrintMessage(string text, Color color)
     {
         ClearChatBox();
-        textBox.GetComponent<TextMeshProUGUI>().faceColor = color;
-        textBox.GetComponent<TextMeshProUGUI>().text += '"';
+        textMeshPro.faceColor = color;
+        textMeshPro.text += '"';
         foreach (char c in text)
         {
-            textBox.GetComponent<TextMeshProUGUI>().text += c;
-            yield return new WaitForSeconds(0.05f);
+            textMeshPro.text += c;
+            yield return new WaitForSeconds(0.02f);
         }
-        textBox.GetComponent<TextMeshProUGUI>().text += '"';
+        textMeshPro.text += '"';
 
 
     }
 
     public void ClearChatBox()
     {
-        textBox.GetComponent<TextMeshProUGUI>().text = "";
-        textBox.GetComponent<TextMeshProUGUI>().faceColor = Color.black;
+        textMeshPro.text = "";
+        textMeshPro.faceColor = Color.black;
     }
 }
