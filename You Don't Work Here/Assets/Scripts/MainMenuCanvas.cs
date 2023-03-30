@@ -6,7 +6,13 @@ public class MainMenuCanvas : MonoBehaviour
 {
     public SceneLoader sceneLoader;
     // Start is called before the first frame update
-    public void play(){
+    public void play()
+    {
         sceneLoader.LoadLevel(SceneLoader.Level.Intro);
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
