@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 5900886867318105148}
   - component: {fileID: 4263312206898437548}
   - component: {fileID: 5040370427654337976}
+  - component: {fileID: 6558564492049120538}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -335,8 +336,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1618893479
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -831956209, guid: a559349c5f4b26944852bbca61927894, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -481,6 +482,36 @@ MonoBehaviour:
   blockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6558564492049120538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8240305338519571219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 89e30c7600000000a75a7e60e7169e63
+  m_ShapePath:
+  - {x: -0.05385971, y: -0.760247, z: 0}
+  - {x: -0.05075848, y: 0.02081889, z: 0}
+  - {x: 0.015375793, y: 0.024183273, z: 0}
+  - {x: 0.021754086, y: -0.7593789, z: 0}
+  m_ShapePathHash: -1725580571
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -160712
+  m_LocalBounds:
+    m_Center: {x: -0.016052812, y: -0.36803186, z: 0}
+    m_Extent: {x: 0.0378069, y: 0.39221513, z: 0}
 --- !u!1001 &7963931668197265084
 PrefabInstance:
   m_ObjectHideFlags: 0
