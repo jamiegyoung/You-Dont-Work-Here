@@ -51,4 +51,6 @@ public class PlayerMoney : ScriptableObject
             return false;
         }
     }
+
+    public void ResetBalance() { balance = 100f; }
 }
