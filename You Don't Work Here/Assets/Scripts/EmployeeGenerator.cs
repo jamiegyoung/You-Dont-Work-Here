@@ -12,7 +12,8 @@ public class EmployeeGenerator : MonoBehaviour
     public EmployeeType[] employeeTypes;
     public List<Employee> employees;
     public int initialEmployees = 4;
-    public int employeeAdditionAmount = 1;
+    public int employeeAdditionAmount = 2;
+    public int employeeRemovalAmount = 1;
     public List<Employee> newEmployees;
     public List<Employee> firedEmployees;
     public static EmployeeGenerator instance;
@@ -22,12 +23,18 @@ public class EmployeeGenerator : MonoBehaviour
     {
         if (instance != null && instance != this)
         {
+            // Instance already exists
             Destroy(gameObject);
+            // Therefore add the day on the instance
+            instance.processDay(DayTracker.instance.currentDay);
         }
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        int employeesToGenerate = initialEmployees - employees.Count;
-        AddEmployees(employeesToGenerate);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            int employeesToGenerate = initialEmployees - employees.Count;
+            AddEmployees(employeesToGenerate);
+        }
     }
 
     /// <summary>
@@ -61,6 +68,32 @@ public class EmployeeGenerator : MonoBehaviour
         }
         this.newEmployees = newEmployees;
         return newEmployees;
+    }
+
+    public void processDay(int day)
+    {
+        switch (day)
+        {
+            case 1:
+                FireEmployees(0);
+                AddEmployees(1);
+            break;  
+            case 2:
+                FireEmployees(1);
+                AddEmployees(2);
+                break;
+            case 3:
+                FireEmployees(1);
+                AddEmployees(1);
+                break;
+            case 4:
+                FireEmployees(1);
+                AddEmployees(2);
+                break;
+            case 5:
+                AddEmployees(1);
+                break;
+        }
     }
 
     /// <summary>
