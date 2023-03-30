@@ -23,13 +23,13 @@ public class DayTracker : MonoBehaviour
 
     public void IncrementDay()
     {
+        currentDay++;
         if (currentDay > finalDay)
         {
 
             throw new NotImplementedException();
             return;
         }
-        currentDay++;
         Debug.Log("Current day:" + currentDay);
     }
 }
