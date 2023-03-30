@@ -14,7 +14,7 @@ public class Laptop : MonoBehaviour, Interactable
     public GameObject firedEmployeesText;
     public GameObject continuingEmployeesPanel;
     public GameObject continuingEmployeesText;
-    public EmployeeGenerator employeeGenerator;
+    private EmployeeGenerator employeeGenerator;
     public PlayerInput playerInput;
     private InputHandler inputHandler;
 
@@ -77,6 +77,7 @@ public class Laptop : MonoBehaviour, Interactable
 
     public void Interact(GameObject interactor)
     {
+        employeeGenerator = EmployeeGenerator.instance;
         ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
         GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
 
