@@ -71,4 +71,45 @@ public class Employee
     {
         return Equals(this, other);
     }
+
+    public string GetIntroductionSpeech()
+    {
+        return GetRandomText(speechType.introductionText);
+    }
+
+    public string GetTakingTimeSpeech()
+    {
+        return GetRandomText(speechType.takingTimeText);
+    }
+
+    public string GetAcceptionSpeech()
+    {
+        return GetRandomText(speechType.acceptionText);
+    }
+
+    public string GetRejectionSpeech()
+    {
+        return GetRandomText(speechType.rejectionText);
+    }
+
+    private static string GetRandomText(string[] text)
+    {
+        int randomIndex = Random.Range(0, text.Length);
+        return text[randomIndex];
+    }
+
+    public Color GetColor()
+    {
+       
+        int ascii = 0;
+        foreach(char c in firstName + lastName)
+        {
+            ascii += (int)c;
+        }
+        float hue = ((float)ascii % 256) / 255;
+
+        
+        return Color.HSVToRGB(hue, 0.8f, 0.5f);
+    }
+
 }
