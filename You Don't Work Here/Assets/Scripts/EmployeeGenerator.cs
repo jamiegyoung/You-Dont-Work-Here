@@ -91,10 +91,7 @@ public class EmployeeGenerator : MonoBehaviour
                 AddEmployees(2);
                 break;
             case 5:
-                FireEmployees(1);
                 AddEmployees(1);
-                break;
-            default:
                 break;
         }
     }
