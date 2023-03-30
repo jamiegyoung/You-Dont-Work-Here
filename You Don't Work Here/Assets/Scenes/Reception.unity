@@ -1046,6 +1046,7 @@ MonoBehaviour:
   employees: []
   initialEmployees: 6
   employeeAdditionAmount: 1
+  employeeRemovalAmount: 1
   newEmployees: []
   firedEmployees: []
 --- !u!4 &296546424
@@ -1297,7 +1298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -360.00006, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &548048172
@@ -2300,7 +2301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -360.00006, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1230084185
@@ -2817,6 +2818,7 @@ GameObject:
   - component: {fileID: 1471151577}
   - component: {fileID: 1471151579}
   - component: {fileID: 1471151578}
+  - component: {fileID: 1471151580}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -2864,7 +2866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -831956209, guid: a559349c5f4b26944852bbca61927894, type: 3}
+  m_Sprite: {fileID: -1164838372, guid: e1d1fa9a9a2c8ca4f9508519b2d99fca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2882,6 +2884,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1471151576}
   m_CullTransparentMesh: 1
+--- !u!95 &1471151580
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1471151576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 774266e54e5dcc04094b818ccd89580f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1576954435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,7 +3838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 21}
+  m_AnchoredPosition: {x: -360.00006, y: 21}
   m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!320 &2080855294
