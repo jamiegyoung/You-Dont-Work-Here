@@ -31,6 +31,10 @@ public class BillPaymentSystem : ScriptableObject
     private float gasBill = 0;
     private float foodBill = 0;
 
+    public int electricityDaysDue = 0;
+    public int gasDaysDue = 0;
+    public int foodDaysDue = 0;
+
     //Ininitalise boiler state
     private bool boilerBroken = false;
 
@@ -49,6 +53,9 @@ public class BillPaymentSystem : ScriptableObject
         electricityBill += CalculateBill(electricityCost, day);
         gasBill += CalculateBill(gasCost, day);
         foodBill += foodCost;
+        electricityDaysDue++;
+        gasDaysDue++;
+        foodDaysDue++;
     }
 
 
@@ -92,11 +99,20 @@ public class BillPaymentSystem : ScriptableObject
         if (player.Withdraw(total))
         {
             if (bills.payElectricity)
+            {
                 electricityBill = 0;
+                electricityDaysDue = 0;
+            }
             if (bills.payGas)
+            {
                 gasBill = 0;
+                gasDaysDue = 0;
+            }
             if (bills.payFood)
+            {
                 foodBill = 0;
+                foodDaysDue = 0;
+            }
             return true;
         }
         else

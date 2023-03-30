@@ -58,8 +58,8 @@ public class DisplayBills : MonoBehaviour
             float balance = player.GetBalance() - subtotal;
 
             //Update user interface with new totals
-            billText.GetComponent<TextMeshProUGUI>().text = "Check box to pay bill\n\n\nGas: £" + gas + ".00\n\nElectricity: £" + electricity
-                + ".00\n\nFood: £" + food + ".00\n\n\nTotal: £" + total + ".00\nCurrent Payment: £" + subtotal + ".00\nCurrent Balance: £" + balance + ".00";
+            billText.GetComponent<TextMeshProUGUI>().text = "Check box to pay bill\n\n\nGas: £" + gas.ToString("0.00") + "\n\nElectricity: £" + electricity.ToString("0.00")
+                + "\n\nFood: £" + food.ToString("0.00") + "\n\n\nTotal: £" + total.ToString("0.00") + "\nCurrent Payment: £" + subtotal.ToString("0.00") + "\nCurrent Balance: £" + balance.ToString("0.00");
 
             //If the users balance after the bills selected are withdrawn then display pay button
             if (balance > 0)
