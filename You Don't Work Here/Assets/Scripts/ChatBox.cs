@@ -17,13 +17,13 @@ public class ChatBox : MonoBehaviour
 
     public void PrintText(string text, Color color)
     {
-       
+        
         StartCoroutine(PrintMessage(text, color));
     }
 
     private IEnumerator PrintMessage(string text, Color32 color)
     {
-        Debug.Log(color);
+        
         ClearChatBox();
         textMeshPro.color = color;
         textMeshPro.text += '"';

@@ -98,7 +98,7 @@ public class Employee
         return text[randomIndex];
     }
 
-    public Vector4 GetColor()
+    public Color GetColor()
     {
        
         int ascii = 0;
@@ -106,27 +106,10 @@ public class Employee
         {
             ascii += (int)c;
         }
-        float red = ((float)ascii % 255) / 255;
-        float green = ((float)ascii % 255) / 255;
-        float blue = ((float)ascii % 255) / 255;
+        float hue = ((float)ascii % 256) / 255;
 
-        switch (ascii % 3 )
-        {
-            case 0:
-                green /= 2;
-                blue /= 2;
-                break;
-            case 1:
-                red /= 2;
-                blue /= 2;
-                break;
-            case 2:
-                red /= 2;
-                green /= 2;
-                break;
-        }
-       
-        return new Vector4 (red, green, blue, 255);
+        
+        return Color.HSVToRGB(hue, 0.8f, 0.5f);
     }
 
 }
