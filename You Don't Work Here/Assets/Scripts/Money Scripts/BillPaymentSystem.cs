@@ -155,7 +155,11 @@ public class BillPaymentSystem : ScriptableObject
         gasBill = 0;
         electricityBill = 0;
         foodBill = 0;
+        electricityDaysDue = 0;
+        gasDaysDue = 0;
+        foodDaysDue = 0;
         boilerBroken = false;
+        player.ResetBalance();
     }
 
     public void PayEmployee()
@@ -166,7 +170,7 @@ public class BillPaymentSystem : ScriptableObject
             mistakeCount = 0;
         }
         
-        float payValue = 80f - mistakeCount * 5;
+        float payValue = 80f - mistakeCount * 20;
         
         if (payValue < 0)
         {

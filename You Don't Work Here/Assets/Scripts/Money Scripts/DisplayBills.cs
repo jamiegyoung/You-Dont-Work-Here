@@ -13,6 +13,13 @@ public class DisplayBills : MonoBehaviour
     [SerializeField] private GameObject[] checkBoxObjects;  //Array of the checkboxes on the pay bill screen
     [SerializeField] private GameObject payButton;  // Gameobject for the oay button
     [SerializeField] private SceneLoader sceneLoader;
+
+    [SerializeField] private TextMeshProUGUI hungerOutput;
+    [SerializeField] private TextMeshProUGUI tempOutput;
+
+    private Color[] statusColors = new Color[3] ;
+    private string[] hungerStatus = new string[3] { "Full", "Hungry", "Starving" };
+    private string[] tempStatus = new string[3] { "Warm", "Cold", "Freezing" };
     private bool display = false;
 
     // Current bill values
@@ -29,6 +36,9 @@ public class DisplayBills : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        statusColors[0] = new Color(0f,0.65f,0f,1f);
+        statusColors[1] = new Color(0.83f,0.53f,0f,1f);
+        statusColors[2] = new Color(0.8f, 0f, 0f, 1f);
         payFood = false;
         payGas = false;
         payElectricity = false;
@@ -37,7 +47,8 @@ public class DisplayBills : MonoBehaviour
         checkBoxes.SetActive(false);
         billText.SetActive(false);
         payButton.SetActive(false);
-        bps.RestartGame();
+        if(DayTracker.instance.currentDay == 0)
+            bps.RestartGame();
     }
 
     // Update is called once per frame
@@ -76,6 +87,8 @@ public class DisplayBills : MonoBehaviour
     public void PayBill()
     {
         bps.PayBills(new Bills(payGas, payFood, payElectricity));
+        hungerOutput.text = "";
+        tempOutput.text = "";
         UpdateBills();
         DayTracker.instance.IncrementDay();
         sceneLoader.LoadLevel(SceneLoader.Level.House);
@@ -85,6 +98,12 @@ public class DisplayBills : MonoBehaviour
     /// </summary>
     public void DisplayBill()
     {
+        hungerOutput.text = hungerStatus[bps.foodDaysDue];
+        hungerOutput.color = statusColors[bps.foodDaysDue];
+        tempOutput.text = tempStatus[bps.gasDaysDue];
+        tempOutput.color = statusColors[bps.gasDaysDue ];
+        Debug.Log("Displaying Bill");
+        Debug.Log("Food:" + bps.foodDaysDue + "  Gas:" + bps.gasDaysDue);
         bps.PayEmployee();
         display = true;
         bps.IncreaseBills(DayTracker.instance.currentDay);
