@@ -13,7 +13,8 @@ public class SceneLoader : MonoBehaviour
         House,
         Walk,
         Reception,
-        BillPayment
+        BillPayment,
+        EndScreen
     }
 
     public void LoadLevel(Level levels)
