@@ -18,25 +18,18 @@ public class LaptopLight : MonoBehaviour
     {
         if(!DayTracker.instance || (DayTracker.instance && DayTracker.instance.currentDay == 0))
         {
-            bps.RestartGame();
+            //bps.RestartGame();
         }
-        if (bps.electricityDaysDue < 3 || !DayTracker.instance || (DayTracker.instance && DayTracker.instance.currentDay == 0)) 
+        if (bps.electricityDaysDue < 3) 
         {
             
-            gameObject.SetActive(true);
             lowBattery.SetActive(false);
+            gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log("here");
-            gameObject.SetActive(false);
             lowBattery.SetActive(true);
+            gameObject.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
