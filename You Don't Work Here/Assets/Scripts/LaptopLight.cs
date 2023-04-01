@@ -16,9 +16,13 @@ public class LaptopLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(!DayTracker.instance || (DayTracker.instance && DayTracker.instance.currentDay == 0))
+        {
+            bps.RestartGame();
+        }
         if (bps.electricityDaysDue < 3 || !DayTracker.instance || (DayTracker.instance && DayTracker.instance.currentDay == 0)) 
         {
-           
+            
             gameObject.SetActive(true);
             lowBattery.SetActive(false);
         }
