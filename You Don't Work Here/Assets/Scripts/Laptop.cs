@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Laptop : MonoBehaviour, Interactable
 {
+    [SerializeField]
+    private BillPaymentSystem bps;  //Bill Payment System
+
     public GameObject laptopUI;
 
     public GameObject employeeTemplateGameObject;
@@ -77,18 +80,21 @@ public class Laptop : MonoBehaviour, Interactable
 
     public void Interact(GameObject interactor)
     {
-        employeeGenerator = EmployeeGenerator.instance;
-        ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
-        GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
+        if (bps.electricityDaysDue < 3)
+        {
+            employeeGenerator = EmployeeGenerator.instance;
+            ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
+            GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
 
-        ToggleEmployeesGrid(employeeGenerator.firedEmployees, firedEmployeesPanel, firedEmployeesText);
-        GeneratePhotos(employeeGenerator.firedEmployees, firedEmployeesPanel);
+            ToggleEmployeesGrid(employeeGenerator.firedEmployees, firedEmployeesPanel, firedEmployeesText);
+            GeneratePhotos(employeeGenerator.firedEmployees, firedEmployeesPanel);
 
-        List<Employee> remainingEmployees = employeeGenerator.employees.Except(employeeGenerator.newEmployees).ToList();
+            List<Employee> remainingEmployees = employeeGenerator.employees.Except(employeeGenerator.newEmployees).ToList();
 
-        ToggleEmployeesGrid(remainingEmployees, continuingEmployeesPanel, continuingEmployeesText);
-        GeneratePhotos(remainingEmployees, continuingEmployeesPanel);
-        laptopUI.SetActive(true);
+            ToggleEmployeesGrid(remainingEmployees, continuingEmployeesPanel, continuingEmployeesText);
+            GeneratePhotos(remainingEmployees, continuingEmployeesPanel);
+            laptopUI.SetActive(true);
+        }
     }
 
     private void ToggleEmployeesGrid(List<Employee> employees, GameObject panel, GameObject text)
