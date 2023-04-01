@@ -6,7 +6,7 @@ using UnityEngine;
 public class DayTracker : MonoBehaviour
 {
     public int currentDay = 0; // Default for now. Will be set later.
-    public int finalDay = 10;
+    public int finalDay = 6;
     public static DayTracker instance;
     void Start()
     {
@@ -23,13 +23,13 @@ public class DayTracker : MonoBehaviour
 
     public void IncrementDay()
     {
+        currentDay++;
         if (currentDay > finalDay)
         {
 
             throw new NotImplementedException();
             return;
         }
-        currentDay++;
         Debug.Log("Current day:" + currentDay);
     }
 }
