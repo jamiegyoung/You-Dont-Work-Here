@@ -34,7 +34,7 @@ public class PlayerInteract : MonoBehaviour
         Vector3 hitPos = hit.collider.transform.position;
         // Hit blocking, not interactable, potentially could cause an error
         Interactable interactable = hit.collider.GetComponent<Interactable>();
-        if (interactable == null)
+        if (interactable == null || interactable.IsInteractable == false)
         {
             interactionInformer.Hide();
             return;
