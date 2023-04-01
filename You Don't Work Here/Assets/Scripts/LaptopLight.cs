@@ -18,7 +18,7 @@ public class LaptopLight : MonoBehaviour
     {
         if(!DayTracker.instance || (DayTracker.instance && DayTracker.instance.currentDay == 0))
         {
-            //bps.RestartGame();
+            bps.RestartGame();
         }
         if (bps.electricityDaysDue < 3) 
         {
