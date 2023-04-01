@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0) { return; }
         inputVector = inputHandler.GetActionValue<Vector2>(InputHandlerActions.Move);
         UpdateAnimationState();
     }
