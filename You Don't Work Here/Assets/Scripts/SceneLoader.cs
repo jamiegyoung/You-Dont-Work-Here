@@ -18,11 +18,15 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadLevel(Level levels)
     {
+        if(levels.ToString() == "House"){
+            Destroy (GameObject.FindWithTag("IntroMusic"));
+        }
         StartCoroutine(AnimationLoad(levels));
     }
 
     private IEnumerator AnimationLoad(Level level)
     {
+
         animator.SetTrigger("Start");
 
         yield return new WaitForSecondsRealtime(.3f);
