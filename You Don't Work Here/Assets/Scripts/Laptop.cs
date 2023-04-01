@@ -22,7 +22,7 @@ public class Laptop : MonoBehaviour, Interactable
     private InputHandler inputHandler;
 
     //public bool isInteractable => !laptopUI.activeInHierarchy;
-    public bool IsInteractable => true;
+    public bool IsInteractable => bps.electricityDaysDue < 3;
 
     public void Start()
     {
@@ -80,21 +80,18 @@ public class Laptop : MonoBehaviour, Interactable
 
     public void Interact(GameObject interactor)
     {
-        if (bps.electricityDaysDue < 3)
-        {
-            employeeGenerator = EmployeeGenerator.instance;
-            ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
-            GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
+        employeeGenerator = EmployeeGenerator.instance;
+        ToggleEmployeesGrid(employeeGenerator.newEmployees, newEmployeesPanel, newEmployeesText);
+        GeneratePhotos(employeeGenerator.newEmployees, newEmployeesPanel);
 
-            ToggleEmployeesGrid(employeeGenerator.firedEmployees, firedEmployeesPanel, firedEmployeesText);
-            GeneratePhotos(employeeGenerator.firedEmployees, firedEmployeesPanel);
+        ToggleEmployeesGrid(employeeGenerator.firedEmployees, firedEmployeesPanel, firedEmployeesText);
+        GeneratePhotos(employeeGenerator.firedEmployees, firedEmployeesPanel);
 
-            List<Employee> remainingEmployees = employeeGenerator.employees.Except(employeeGenerator.newEmployees).ToList();
+        List<Employee> remainingEmployees = employeeGenerator.employees.Except(employeeGenerator.newEmployees).ToList();
 
-            ToggleEmployeesGrid(remainingEmployees, continuingEmployeesPanel, continuingEmployeesText);
-            GeneratePhotos(remainingEmployees, continuingEmployeesPanel);
-            laptopUI.SetActive(true);
-        }
+        ToggleEmployeesGrid(remainingEmployees, continuingEmployeesPanel, continuingEmployeesText);
+        GeneratePhotos(remainingEmployees, continuingEmployeesPanel);
+        laptopUI.SetActive(true);
     }
 
     private void ToggleEmployeesGrid(List<Employee> employees, GameObject panel, GameObject text)
