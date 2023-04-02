@@ -23,11 +23,11 @@ public class LossHandler : MonoBehaviour
         {
             switch (LossReason)
             {
-                case 0:
+                case (int) LossConditions.Starvation:
                     GameHasEnded = true;
                     sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
                     break;
-                case 1:
+                case (int) LossConditions.Frozen:
                     GameHasEnded = true;
                     LossCondition++;
                     sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
