@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Value: 3
   intensity:
     m_OverrideState: 1
-    m_Value: 0.145
+    m_Value: 0.355
   response:
     m_OverrideState: 0
     m_Value: 0.8
@@ -97,7 +97,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.233
+    m_Value: 0
   xMultiplier:
     m_OverrideState: 1
     m_Value: 1
@@ -109,4 +109,4 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   scale:
     m_OverrideState: 1
-    m_Value: 1.1
+    m_Value: 1

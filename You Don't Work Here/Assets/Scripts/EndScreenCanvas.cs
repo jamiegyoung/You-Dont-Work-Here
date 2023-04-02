@@ -8,16 +8,16 @@ public class EndScreenCanvas : MonoBehaviour
 
     public SceneLoader sceneLoader;
     [SerializeField] private TextMeshProUGUI LossConditionTextMesh;
+    [SerializeField] private LossReason lossReason;
 
     public void Start()
     {
-        LossConditionTextMesh.text = LossHandler.LossText; 
+        LossConditionTextMesh.text = lossReason.ToString;
     }
-
 
     public void Restart()
     {
-        sceneLoader.LoadLevel(SceneLoader.Level.House);
+        sceneLoader.LoadLevel(SceneLoader.Level.MainMenu);
     }
     public void Exit()
     {

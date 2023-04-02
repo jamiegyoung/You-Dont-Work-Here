@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
 
     public enum Level
     {
-        Menu,
+        MainMenu,
         Intro,
         House,
         Walk,

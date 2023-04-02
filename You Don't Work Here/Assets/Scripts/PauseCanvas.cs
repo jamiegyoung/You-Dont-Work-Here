@@ -16,7 +16,7 @@ public class PauseCanvas : MonoBehaviour
 
     public void MainMenu()
     {
-        sceneLoader.LoadLevel(SceneLoader.Level.Menu);
+        sceneLoader.LoadLevel(SceneLoader.Level.MainMenu);
     }
     
 
