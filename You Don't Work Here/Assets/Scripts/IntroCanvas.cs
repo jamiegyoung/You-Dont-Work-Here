@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class IntroCanvas : MonoBehaviour
 {
-    public SceneLoader sceneLoader;
-
+    [SerializeField] private SceneLoader sceneLoader;
+    [SerializeField] private SceneLoader.Level level;
     // Start is called before the first frame update
     void OnEnable()
     {
-        sceneLoader.LoadLevel(SceneLoader.Level.House);
+        sceneLoader.LoadLevel(level);
     }
 }

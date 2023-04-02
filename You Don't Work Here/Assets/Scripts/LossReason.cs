@@ -15,6 +15,8 @@ public class LossReason : ScriptableObject
                 return "AND EVENTUALLY PERISHED DUE TO STARVATION";
             case LossConditions.Frozen:
                 return "AND MET YOUR DEMISE BY FREEZING TO DEATH";
+            case LossConditions.Stabbed:
+                return "AND WERE BRUTALLY STABBED TO DEATH";
             default:
                 return "AND PASSED AWAY DUE TO AN UNKNOWN FORCE";
         }
