@@ -8,12 +8,13 @@ public class SceneLoader : MonoBehaviour
 
     public enum Level
     {
-        Menu,
+        MainMenu,
         Intro,
         House,
         Walk,
         Reception,
-        BillPayment
+        BillPayment,
+        EndScreen
     }
 
     public void LoadLevel(Level levels)
