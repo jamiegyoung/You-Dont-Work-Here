@@ -1576,4 +1576,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneLoader: {fileID: 450674480}
   LossConditionTextMesh: {fileID: 664407897}
-  LossReason: 1
