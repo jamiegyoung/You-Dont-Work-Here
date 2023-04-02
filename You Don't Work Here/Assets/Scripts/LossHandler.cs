@@ -7,7 +7,7 @@ public class LossHandler : MonoBehaviour
 {
     public bool GameHasEnded { get; set; } = false;
     public SceneLoader sceneLoader;
-
+    public static string LossText;
     public enum LossConditions
     {
         Starvation,
@@ -25,10 +25,12 @@ public class LossHandler : MonoBehaviour
             {
                 case (int) LossConditions.Starvation:
                     GameHasEnded = true;
+                    LossText = "You starved to death";
                     sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
                     break;
                 case (int) LossConditions.Frozen:
                     GameHasEnded = true;
+                    LossText = "You froze to death";
                     LossCondition++;
                     sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
                     break;

@@ -11,16 +11,7 @@ public class EndScreenCanvas : MonoBehaviour
 
     public void Start()
     {
-        switch (LossHandler.LossCondition)
-        {
-            case LossHandler.LossConditions.Starvation:
-                LossConditionTextMesh.text = "You starved to death";
-                break;
-            case LossHandler.LossConditions.Frozen:
-                LossConditionTextMesh.text = "You froze to death";
-                break;
-            
-        }
+        LossConditionTextMesh.text = LossHandler.LossText; 
     }
 
 
