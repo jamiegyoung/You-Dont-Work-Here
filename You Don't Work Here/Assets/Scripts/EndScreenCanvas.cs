@@ -12,7 +12,7 @@ public class EndScreenCanvas : MonoBehaviour
 
     public void Start()
     {
-        LossConditionTextMesh.text = lossReason.ToString;
+        LossConditionTextMesh.text = lossReason.ToString();
     }
 
     public void Restart()
