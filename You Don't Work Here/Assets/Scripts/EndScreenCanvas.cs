@@ -9,10 +9,12 @@ public class EndScreenCanvas : MonoBehaviour
     public SceneLoader sceneLoader;
     [SerializeField] private TextMeshProUGUI LossConditionTextMesh;
     [SerializeField] private LossReason lossReason;
+    [SerializeField] private TextMeshProUGUI dayCount;
 
     public void Start()
     {
         LossConditionTextMesh.text = lossReason.ToString();
+        dayCount.text = "YOU LASTED " + DayTracker.instance.currentDay+" DAYS";
     }
 
     public void Restart()
