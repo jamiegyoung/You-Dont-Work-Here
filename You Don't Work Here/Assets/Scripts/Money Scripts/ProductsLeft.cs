@@ -130,6 +130,10 @@ public class ProductsLeft : ScriptableObject
         wineCount = 15;
         headphonesCount = 10;
         watchCount = 5;
+        boughtFlowers = false;
+        boughtWine = false;
+        boughtHeadphones = false;
+        boughtWatch = false;
     }
 
     
