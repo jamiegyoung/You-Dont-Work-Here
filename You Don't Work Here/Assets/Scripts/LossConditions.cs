@@ -2,5 +2,6 @@ public enum LossConditions
 {
     Starvation,
     Frozen,
-    Stabbed
+    Stabbed,
+    InDebt
 }
