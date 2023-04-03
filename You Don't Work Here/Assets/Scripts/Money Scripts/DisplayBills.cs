@@ -18,6 +18,8 @@ public class DisplayBills : MonoBehaviour
     [SerializeField] private TextMeshProUGUI tempOutput;
     [SerializeField] private LossReason lossReason;
 
+    [SerializeField] private TextMeshProUGUI billText;
+
     private Color[] statusColors = new Color[3] ;
     private string[] hungerStatus = new string[3] { "Full", "Hungry", "Starving" };
     private string[] tempStatus = new string[3] { "Warm", "Cold", "Freezing" };
@@ -34,7 +36,7 @@ public class DisplayBills : MonoBehaviour
     private bool flag;
 
     GameObject checkBoxes;
-    GameObject billText;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -46,9 +48,9 @@ public class DisplayBills : MonoBehaviour
         payGas = false;
         payElectricity = false;
         checkBoxes = GameObject.FindWithTag("CheckBoxes");
-        billText = GameObject.FindWithTag("BillText");
+       
         checkBoxes.SetActive(false);
-        billText.SetActive(false);
+        
         payButton.SetActive(false);
         if(DayTracker.instance.currentDay == 0)
             bps.RestartGame();
@@ -72,7 +74,7 @@ public class DisplayBills : MonoBehaviour
             float balance = player.GetBalance() - subtotal;
 
             //Update user interface with new totals
-            billText.GetComponent<TextMeshProUGUI>().text = "Check box to pay bill\n\n\nGas: £" + gas.ToString("0.00") + "\n\nElectricity: £" + electricity.ToString("0.00")
+            billText.text = "Check box to pay bill\n\n\nGas: £" + gas.ToString("0.00") + "\n\nElectricity: £" + electricity.ToString("0.00")
                 + "\n\nFood: £" + food.ToString("0.00") + "\n\n\nTotal: £" + total.ToString("0.00") + "\nCurrent Payment: £" + subtotal.ToString("0.00") + "\nCurrent Balance: £" + balance.ToString("0.00");
 
             //If the users balance after the bills selected are withdrawn then display pay button
@@ -134,7 +136,7 @@ public class DisplayBills : MonoBehaviour
         display = true;
         bps.IncreaseBills(DayTracker.instance.currentDay);
         UpdateBills();
-        billText.SetActive(true);
+        billText.text = "";
         checkBoxes.SetActive(true);
     }
 
