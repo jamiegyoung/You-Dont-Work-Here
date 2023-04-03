@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,6 +10,7 @@ public class ChatBox : MonoBehaviour
 {
 
     [SerializeField] private TMP_Text textMeshPro;
+    public static bool isLoaded;
 
     public void PrintText(string text)
     {
@@ -33,7 +35,7 @@ public class ChatBox : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
         }
         textMeshPro.text += '"';
-
+        isLoaded = true;
 
     }
 
@@ -41,5 +43,6 @@ public class ChatBox : MonoBehaviour
     {
         textMeshPro.text = "";
         textMeshPro.color = Color.black;
+        isLoaded = false;
     }
 }
