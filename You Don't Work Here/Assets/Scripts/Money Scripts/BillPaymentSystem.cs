@@ -170,7 +170,7 @@ public class BillPaymentSystem : ScriptableObject
             mistakeCount = 0;
         }
         
-        float payValue = 80f - mistakeCount * 20;
+        float payValue = 40f - mistakeCount * 20;
         
         if (payValue < 0)
         {

@@ -12,7 +12,7 @@ public class PayBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pay = 80;
+        pay = 40;
         payBox.text = "£" + pay;
         payBox.color = new Color(0f, 0.5f, 0f, 1f);
     }
@@ -22,7 +22,7 @@ public class PayBox : MonoBehaviour
     {
         if (mistakes.mistakes > 1)
         {
-            int currentPay = 80 - ((mistakes.mistakes-2) * 20);
+            int currentPay = 40 - ((mistakes.mistakes-2) * 20);
             if (currentPay != pay)
             {
                 pay = currentPay;

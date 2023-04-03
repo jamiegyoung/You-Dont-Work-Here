@@ -3291,7 +3291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 69.04, y: 151.12}
+  m_AnchoredPosition: {x: 69.04001, y: 151.12}
   m_SizeDelta: {x: 3.33, y: 1.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1336694110
@@ -4364,6 +4364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mistakes: {fileID: 11400000, guid: 6de0f7adef2a09c4d87049173078ae50, type: 2}
   chatBox: {fileID: 1839401778}
+  playerMoney: {fileID: 11400000, guid: 86fd0b7917e4b9a49ac17292c6ea47cc, type: 2}
+  lossReason: {fileID: 11400000, guid: 7eb3f93e1bc64fa45835771b0283329b, type: 2}
   walkInEmployee: {fileID: 2080855292}
   acceptEmployee: {fileID: 548048170}
   rejectEmployee: {fileID: 1230084183}
