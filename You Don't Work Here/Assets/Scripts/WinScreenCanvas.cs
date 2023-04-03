@@ -15,33 +15,33 @@ public class WinScreenCanvas : MonoBehaviour
     {
         if (products.boughtFlowers && products.boughtWine)
         {
-            MotherHappinessText.text = "YOUR MOTHER IS VERY PLEASED WITH YOU,";
+            MotherHappinessText.text = "YOUR MOTHER IS VERY PLEASED WITH YOU BECAUSE YOU GOT HER EVERYTHING SHE WANTED,";
         }
         else if ((!products.boughtFlowers && products.boughtWine) || (products.boughtFlowers && !products.boughtWine))
         {
-            MotherHappinessText.text = "YOUR MOTHER IS ALRIGHT WITH YOUR EXISTENCE,";
+            MotherHappinessText.text = "YOUR MOTHER IS ALRIGHT WITH YOUR EXISTENCE BECAUSE YOU GOT HER ONE GIFT,";
         }
         else
         {
-            MotherHappinessText.text = "YOUR MOTHER STILL HATES YOU,";
+            MotherHappinessText.text = "YOUR MOTHER STILL HATES YOU BECAUSE YOU GOT HER NO GIFTS,";
         }
 
         if (products.boughtWatch)
         {
-            FatherHappinessText.text = "YOUR FATHER IS VERY PLEASED WITH YOU,";
+            FatherHappinessText.text = "YOUR FATHER STILL HATES YOU DESPITE GETTING HIM A GIFT,";
         }
         else
         {
-            FatherHappinessText.text = "YOUR FATHER STILL HATES YOU,";
+            FatherHappinessText.text = "YOUR FATHER STILL HATES YOU BECAUSE YOU DID NOT GET HIM A GIFT,";
         }
 
         if (products.boughtHeadphones)
         {
-            BrotherHappinessText.text = "AND YOUR BROTHER IS VERY PLEASED WITH YOU";
+            BrotherHappinessText.text = "AND YOUR BROTHER IS VERY PLEASED WITH YOU FOR GETTING HIM A GIFT";
         }
         else
         {
-            BrotherHappinessText.text = "AND YOUR BROTHER STILL HATES YOU";
+            BrotherHappinessText.text = "AND YOUR BROTHER IS IMPARTIAL TO YOUR EXISTENCE DESPITE NOT GIVING HIM A GIFT";
         }
     }
 
