@@ -12,19 +12,22 @@ public class MugEventHandler : MonoBehaviour
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private PlayableDirector deathTimeline;
     [SerializeField] private PlayableDirector restOfMugTimeline;
+    [SerializeField] private GameObject mugger;
     // Start is called before the first frame update
     void Start()
     {
         bc = GetComponent<BoxCollider2D>();
         pd = GetComponent<PlayableDirector>();
-        //if (DayTracker.instance.currentDay == 1)
-        //{
-        bc.enabled = true;
-        //}
-        //else
-        //{
-        //    bc.enabled = false;
-        //}
+        if (DayTracker.instance.currentDay == 1)
+        {
+            mugger.SetActive(true);
+            bc.enabled = true;
+        }
+        else
+        {
+            mugger.SetActive(false);
+            bc.enabled = false;
+        }
         pd.enabled = true;
         deathTimeline.enabled = false;
     }
