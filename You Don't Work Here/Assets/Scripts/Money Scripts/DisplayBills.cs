@@ -108,6 +108,10 @@ public class DisplayBills : MonoBehaviour
             sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
 
         }
+        else if (DayTracker.instance.currentDay > DayTracker.instance.finalDay)
+        {
+            sceneLoader.LoadLevel(SceneLoader.Level.WinScreen);
+        }
         else
         {
             sceneLoader.LoadLevel(SceneLoader.Level.House);
