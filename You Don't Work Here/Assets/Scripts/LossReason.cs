@@ -17,6 +17,8 @@ public class LossReason : ScriptableObject
                 return "AND MET YOUR DEMISE BY FREEZING TO DEATH";
             case LossConditions.Stabbed:
                 return "AND WERE BRUTALLY STABBED TO DEATH";
+            case LossConditions.InDebt:
+                return "AND RAN OUT OF MONEY";
             default:
                 return "AND PASSED AWAY DUE TO AN UNKNOWN FORCE";
         }
