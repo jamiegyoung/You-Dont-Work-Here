@@ -31,12 +31,14 @@ public class DisplayBills : MonoBehaviour
     private bool payGas;
     private bool payFood;
     private bool payElectricity;
+    private bool flag;
 
     GameObject checkBoxes;
     GameObject billText;
     // Start is called before the first frame update
     void Start()
     {
+        flag = false;
         statusColors[0] = new Color(0f,0.65f,0f,1f);
         statusColors[1] = new Color(0.83f,0.53f,0f,1f);
         statusColors[2] = new Color(0.8f, 0f, 0f, 1f);
@@ -87,6 +89,8 @@ public class DisplayBills : MonoBehaviour
 
     public void PayBill()
     {
+        if (flag == true) { return; }
+        flag = true;
         bps.PayBills(new Bills(payGas, payFood, payElectricity));
         hungerOutput.text = "";
         tempOutput.text = "";
