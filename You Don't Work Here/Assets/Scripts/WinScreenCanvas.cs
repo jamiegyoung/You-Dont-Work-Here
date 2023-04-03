@@ -19,7 +19,7 @@ public class WinScreenCanvas : MonoBehaviour
             MotherHappinessText.text = "YOUR MOTHER IS VERY PLEASED WITH YOU BECAUSE YOU GOT HER EVERYTHING SHE WANTED,";
             score += 2;
         }
-        else if ((!products.boughtFlowers && products.boughtWine) || (products.boughtFlowers && !products.boughtWine))
+        else if (products.boughtFlowers || products.boughtWine)
         {
             MotherHappinessText.text = "YOUR MOTHER IS ALRIGHT WITH YOUR EXISTENCE BECAUSE YOU GOT HER ONE GIFT,";
             score++;
