@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - IntroMusic
+  - BillText
+  - CheckBoxes
+  - Loader
   layers:
   - Default
   - TransparentFX

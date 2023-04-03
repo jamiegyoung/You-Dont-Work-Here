@@ -15,7 +15,8 @@ public class SceneLoader : MonoBehaviour
         Reception,
         Shop,
         BillPayment,
-        EndScreen
+        EndScreen,
+        WinScreen
     }
 
     public void LoadLevel(Level levels)
