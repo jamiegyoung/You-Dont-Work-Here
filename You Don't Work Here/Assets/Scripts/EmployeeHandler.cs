@@ -11,6 +11,8 @@ public class EmployeeHandler : MonoBehaviour
 
     [SerializeField] private MistakesTracker mistakes;
     [SerializeField] private ChatBox chatBox;
+    [SerializeField] private PlayerMoney playerMoney;
+    [SerializeField] private LossReason lossReason;
     public GameObject walkInEmployee;
     public GameObject acceptEmployee;
     public GameObject rejectEmployee;
@@ -34,6 +36,7 @@ public class EmployeeHandler : MonoBehaviour
     private List<Employee> employeesToProcess;
     private Employee currentEmployee;
     private Animator closeUpAnim;
+
 
     private bool accepted = false;
     private bool rejected = false;
@@ -135,6 +138,14 @@ public class EmployeeHandler : MonoBehaviour
         }
         else
         {
+            if (mistakes.mistakes > 2 && ((mistakes.mistakes-2) * 20) > 40)
+            {
+                if (playerMoney.GetBalance() < (mistakes.mistakes - 2) * 20){
+                    lossReason.lossReason = LossConditions.InDebt;
+                    sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
+                }
+            }
+            
             sceneLoader.LoadLevel(SceneLoader.Level.Shop);
         }
         
