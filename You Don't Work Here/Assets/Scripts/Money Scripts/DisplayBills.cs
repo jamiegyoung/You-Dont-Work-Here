@@ -78,7 +78,7 @@ public class DisplayBills : MonoBehaviour
                 + "\n\nFood: £" + food.ToString("0.00") + "\n\n\nTotal: £" + total.ToString("0.00") + "\nCurrent Payment: £" + subtotal.ToString("0.00") + "\nCurrent Balance: £" + balance.ToString("0.00");
 
             //If the users balance after the bills selected are withdrawn then display pay button
-            if (balance > 0)
+            if (balance >= 0)
             {
                 payButton.SetActive(true);
             }
