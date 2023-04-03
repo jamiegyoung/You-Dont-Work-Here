@@ -16,6 +16,8 @@ public class EmployeeHandler : MonoBehaviour
     public GameObject rejectEmployee;
     public GameObject closeUpEmployee;
     public Animator acceptRejectButtonsAnim;
+    public AudioSource buttonsAppear;
+    public AudioSource buttonsDisappear;
     public SceneLoader sceneLoader;
     public AudioSource successAudio;
     public AudioSource failAudio;
@@ -142,6 +144,7 @@ public class EmployeeHandler : MonoBehaviour
     {
         ShowCloseUpEmployee();
         acceptRejectButtonsAnim.SetBool("ShowButtons", true);
+        buttonsAppear.PlayDelayed(.9f);
         accepted = false;
         rejected = false;
         while (accepted == false && rejected == false)
@@ -149,6 +152,8 @@ public class EmployeeHandler : MonoBehaviour
             yield return null;
         }
         acceptRejectButtonsAnim.SetBool("ShowButtons", false);
+        buttonsDisappear.Play();
+
         HideCloseUpEmployee(accepted);
     }
 
