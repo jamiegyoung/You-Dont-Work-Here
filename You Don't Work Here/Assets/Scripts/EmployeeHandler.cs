@@ -144,9 +144,16 @@ public class EmployeeHandler : MonoBehaviour
                     lossReason.lossReason = LossConditions.InDebt;
                     sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
                 }
+                else
+                {
+                    sceneLoader.LoadLevel(SceneLoader.Level.Shop);
+                }
+            }
+            else {
+                sceneLoader.LoadLevel(SceneLoader.Level.Shop);
             }
             
-            sceneLoader.LoadLevel(SceneLoader.Level.Shop);
+           
         }
         
     }
