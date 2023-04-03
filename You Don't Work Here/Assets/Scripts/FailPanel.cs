@@ -25,7 +25,7 @@ public class FailPanel : MonoBehaviour
         }
         else
         {
-            tmp.text = "Your lack of enthusiasm for the job has severly affected the company's productivity, your pay has be docked.";
+            tmp.text = "Your lack of enthusiasm for the job has severly affected the company's productivity, your pay has been docked.";
         }
         failAnim.SetTrigger("ShowFailPanel");
     }
