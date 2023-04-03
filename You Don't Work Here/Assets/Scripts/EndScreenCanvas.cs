@@ -19,6 +19,10 @@ public class EndScreenCanvas : MonoBehaviour
 
     public void Restart()
     {
+        Destroy(EmployeeGenerator.instance);
+        EmployeeGenerator.instance = null;
+        Destroy(DayTracker.instance);
+        DayTracker.instance = null;
         sceneLoader.LoadLevel(SceneLoader.Level.MainMenu);
     }
     public void Exit()
