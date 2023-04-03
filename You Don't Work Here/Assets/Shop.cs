@@ -38,6 +38,7 @@ public class Shop : MonoBehaviour
         {
             products.ResetValues();
         }
+        products.decrementSupply();
         bps.PayEmployee();
     }
 
