@@ -2539,3 +2539,4 @@ MonoBehaviour:
   sceneLoader: {fileID: 535248468}
   hungerOutput: {fileID: 623843752}
   tempOutput: {fileID: 1009582021}
+  lossReason: {fileID: 11400000, guid: 7eb3f93e1bc64fa45835771b0283329b, type: 2}
