@@ -21,7 +21,7 @@ public class EmployeeGenerator : MonoBehaviour
 
     void Start()
     {
-        if (instance != null && instance != this)
+        if ((instance != null && instance != this))
         {
             // Instance already exists
             Destroy(gameObject);
@@ -77,7 +77,7 @@ public class EmployeeGenerator : MonoBehaviour
             case 1:
                 FireEmployees(0);
                 AddEmployees(1);
-            break;  
+                break;
             case 2:
                 FireEmployees(1);
                 AddEmployees(2);
