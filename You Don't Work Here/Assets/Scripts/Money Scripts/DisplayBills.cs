@@ -129,7 +129,8 @@ public class DisplayBills : MonoBehaviour
         tempOutput.color = statusColors[bps.gasDaysDue ];
         Debug.Log("Displaying Bill");
         Debug.Log("Food:" + bps.foodDaysDue + "  Gas:" + bps.gasDaysDue);
-        bps.PayEmployee();
+        if(DayTracker.instance.currentDay == 0)
+            bps.PayEmployee();
         display = true;
         bps.IncreaseBills(DayTracker.instance.currentDay);
         UpdateBills();
