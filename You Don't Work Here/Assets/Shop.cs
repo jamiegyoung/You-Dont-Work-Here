@@ -6,6 +6,9 @@ using UnityEngine;
 public class Shop : MonoBehaviour
 {
 
+    [SerializeField]
+    private BillPaymentSystem bps;  //Bill Payment System
+
     [SerializeField] private GameObject[] itemsSelected;
 
     [SerializeField] private GameObject[] productTicks;
@@ -35,6 +38,7 @@ public class Shop : MonoBehaviour
         {
             products.ResetValues();
         }
+        bps.PayEmployee();
     }
 
     // Update is called once per frame
