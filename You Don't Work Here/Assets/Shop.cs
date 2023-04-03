@@ -21,6 +21,8 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private ProductsLeft products;
 
+    public SceneLoader sceneLoader;
+
     private float[] prices = new float[4] { 10f, 16f, 30f, 75f };
 
     private float subtotal = 0;
@@ -29,7 +31,10 @@ public class Shop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if(DayTracker.instance.currentDay == 1)
+        {
+            products.ResetValues();
+        }
     }
 
     // Update is called once per frame
@@ -86,7 +91,8 @@ public class Shop : MonoBehaviour
                         products.buyProduct((ProductsLeft.Products)i);
                     }
                 }
-               
+                sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);
+                return;
             }
         }
        

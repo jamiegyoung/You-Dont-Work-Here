@@ -1716,6 +1716,7 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: 86fd0b7917e4b9a49ac17292c6ea47cc, type: 2}
   payButton: {fileID: 910219565}
   products: {fileID: 11400000, guid: 2eee726dacb1dd4438d4c3f6c656192c, type: 2}
+  sceneLoader: {fileID: 1198508158}
 --- !u!1 &1049319457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,6 +2288,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143629007}
   m_CullTransparentMesh: 1
+--- !u!114 &1198508158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8900869583322337850, guid: 0cc4d86027d365347b8cf92995d3132b, type: 3}
+  m_PrefabInstance: {fileID: 1783504822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34638fecd990c584e89980183668f6cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301499364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470902631523760883, guid: 0cc4d86027d365347b8cf92995d3132b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cc4d86027d365347b8cf92995d3132b, type: 3}

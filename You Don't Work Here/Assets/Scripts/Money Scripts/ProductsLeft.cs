@@ -124,7 +124,7 @@ public class ProductsLeft : ScriptableObject
         }
     }
 
-    public void restart()
+    public void ResetValues()
     {
         flowersCount = 20;
         wineCount = 15;

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ad1b0eae1c84443859f565be66c070, type: 3}
   m_Name: Player Money
   m_EditorClassIdentifier: 
-  balance: 26
+  balance: 80.64
