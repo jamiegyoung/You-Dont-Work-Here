@@ -13,6 +13,7 @@ public class MugEventHandler : MonoBehaviour
     [SerializeField] private PlayableDirector deathTimeline;
     [SerializeField] private PlayableDirector restOfMugTimeline;
     [SerializeField] private GameObject mugger;
+    [SerializeField] private PlayerMoney playerMoney;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class MugEventHandler : MonoBehaviour
     {
         restOfMugTimeline.enabled = true;
         pd.Stop();
+        playerMoney.Withdraw(playerMoney.GetBalance());
         restOfMugTimeline.Play();
         bc.enabled = false;
     }
