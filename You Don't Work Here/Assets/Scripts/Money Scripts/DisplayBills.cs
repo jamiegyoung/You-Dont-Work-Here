@@ -16,6 +16,7 @@ public class DisplayBills : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI hungerOutput;
     [SerializeField] private TextMeshProUGUI tempOutput;
+    [SerializeField] private LossReason lossReason;
 
     private Color[] statusColors = new Color[3] ;
     private string[] hungerStatus = new string[3] { "Full", "Hungry", "Starving" };
@@ -91,7 +92,23 @@ public class DisplayBills : MonoBehaviour
         tempOutput.text = "";
         UpdateBills();
         DayTracker.instance.IncrementDay();
-        sceneLoader.LoadLevel(SceneLoader.Level.House);
+        if (bps.gasDaysDue == 3)
+        {
+            lossReason.lossReason = LossConditions.Frozen;
+            sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
+
+        }
+        else if (bps.foodDaysDue == 3)
+        {
+            lossReason.lossReason = LossConditions.Starvation;
+            sceneLoader.LoadLevel(SceneLoader.Level.EndScreen);
+
+        }
+        else
+        {
+            sceneLoader.LoadLevel(SceneLoader.Level.House);
+        }
+     
     }
     /// <summary>
     /// Method <c>DisplayBill</c> displays the current bill payment screen

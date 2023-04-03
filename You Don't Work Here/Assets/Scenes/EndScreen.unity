@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: YOU LASTED 14 DAYS
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1d352e4090fc7e5428b3e11beb94b54e, type: 2}
   m_sharedMaterial: {fileID: 1324735455179542856, guid: 1d352e4090fc7e5428b3e11beb94b54e, type: 2}
@@ -1577,3 +1577,4 @@ MonoBehaviour:
   sceneLoader: {fileID: 450674480}
   LossConditionTextMesh: {fileID: 664407897}
   lossReason: {fileID: 11400000, guid: 7eb3f93e1bc64fa45835771b0283329b, type: 2}
+  dayCount: {fileID: 1596463419}
