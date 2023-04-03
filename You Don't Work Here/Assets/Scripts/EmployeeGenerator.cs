@@ -21,7 +21,7 @@ public class EmployeeGenerator : MonoBehaviour
 
     void Start()
     {
-        if ((instance != null && instance != this))
+        if ((instance != null && instance != this) && DayTracker.instance != null && !(DayTracker.instance.currentDay == 0))
         {
             // Instance already exists
             Destroy(gameObject);

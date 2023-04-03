@@ -17,6 +17,15 @@ public class PauseCanvas : MonoBehaviour
     public void MainMenu()
     {
         sceneLoader.LoadLevel(SceneLoader.Level.MainMenu);
+        if (DayTracker.instance != null)
+        {
+            DayTracker.instance = null;
+        }
+
+        if (EmployeeGenerator.instance != null)
+        {
+            EmployeeGenerator.instance = null;
+        }
     }
     
 
