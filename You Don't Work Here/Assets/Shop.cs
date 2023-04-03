@@ -53,7 +53,8 @@ public class Shop : MonoBehaviour
             if(count < 1 || bought)
             {
                 itemsSelected[i].SetActive(false);
-                productTicks[i].SetActive(true);
+                if(count>0)
+                    productTicks[i].SetActive(true);
                 remainingItems[i].text = count+" remaining";
             }
             else
