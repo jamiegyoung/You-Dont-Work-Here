@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour
         House,
         Walk,
         Reception,
+        Shop,
         BillPayment,
         EndScreen
     }

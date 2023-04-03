@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Reception.unity
     guid: 010595d03497db4488bcd9f0da8f8057
   - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 9b6d69c692d6c81478e058f0b0d20bce
+  - enabled: 1
     path: Assets/Scenes/BillPayment.unity
     guid: f2772b827bf42144aa7d23e06cb7abda
   - enabled: 1

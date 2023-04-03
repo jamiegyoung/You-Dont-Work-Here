@@ -127,7 +127,15 @@ public class EmployeeHandler : MonoBehaviour
             chatBox.ClearChatBox();
         }
         // Finished processing employees
-        sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);
+        if (DayTracker.instance.currentDay == 0)
+        {
+            sceneLoader.LoadLevel(SceneLoader.Level.BillPayment);
+        }
+        else
+        {
+            sceneLoader.LoadLevel(SceneLoader.Level.Shop);
+        }
+        
     }
 
     private IEnumerator WaitForUserProcessing()
