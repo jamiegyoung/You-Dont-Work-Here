@@ -1,0 +1,25 @@
+html, body {
+  background-color: #000;
+  color: white;
+  display: flex;
+}
+
+.logo {
+  width: 600px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -300%);
+}
+
+#unity-canvas {
+  border-radius: 40px;
+}
+
+#unity-fullscreen-button {
+  border-radius: 20px;
+  transform: translate(-10px,-50px);
+}
